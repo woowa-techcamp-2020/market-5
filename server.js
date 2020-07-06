@@ -1,10 +1,8 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const route = require('./route.js');
+const route = require('./router.js');
 app.set('view engine', 'pug'); // (1)
-app.set('views', path.join(__dirname, 'html')); // (2)
-app.use(express.static(path.join(__dirname, 'html')));
 app.use('/', route);
 // 에러 처리 부분
 app.listen(8080, () => {
