@@ -1,0 +1,26 @@
+{
+  "name": "market-park-noh",
+  "version": "1.0.0",
+  "description": "",
+  "main": "router.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/woowa-techcamp-2020/market-park-noh.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/woowa-techcamp-2020/market-park-noh/issues"
+  },
+  "homepage": "https://github.com/woowa-techcamp-2020/market-park-noh#readme"
+}
