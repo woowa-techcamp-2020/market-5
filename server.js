@@ -6,5 +6,5 @@ app.set('view engine', 'pug'); // (1)
 app.use('/', route);
 // 에러 처리 부분
 app.listen(8080, () => {
-    console.log('Express App on port 8080!');
+    console.log('Express App on http://localhost:8080');
 });
