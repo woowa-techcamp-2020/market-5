@@ -9,4 +9,9 @@ router.get('/register', (req, res) => {
 router.get('/registerSuccess', (req, res) => {
     res.render('registerSuccess'); // (4)
 });
+
+router.get('/login', (req, res) => {
+    res.render('login'); // (4)
+});
+
 module.exports = router;
