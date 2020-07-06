@@ -4,7 +4,7 @@ router.get('/', (req, res) => {
     res.render('main'); // (3)
 });
 router.get('/register', (req, res) => {
-    res.render('register'); // (4)
+    res.render('./Register/register'); // (4)
 });
 router.get('/registerSuccess', (req, res) => {
     res.render('registerSuccess'); // (4)
