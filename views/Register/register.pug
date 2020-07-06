@@ -1,7 +1,9 @@
 doctype html
 html
-  head
+  head(lang='ko')
     title 회원가입
-    lang ko
+    link(href='/css/normalize.css', rel="stylesheet")
+    link(href='/css/register/register.css', rel="stylesheet")
   body
-    block content
+    .big-box
+      include title.pug

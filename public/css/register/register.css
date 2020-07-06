@@ -1,11 +1,9 @@
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
-.hanna * { font-family: ‘Hanna’, fantasy; }
-
-body{
-    font-family: ‘Hanna’, fantasy;
+.hanna * {
+    font-family: 'Hanna', fantasy;
 }
 
-.big-box{
+.big-box {
     margin: 0 auto;
     max-width: 750px;
     width: 90%;
