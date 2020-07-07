@@ -6,6 +6,8 @@ router.get('/', (req, res) => {
 router.get('/register', (req, res) => {
     res.render('./Register/register'); // (4)
 });
+
+
 router.get('/registerSuccess', (req, res) => {
     res.render('registerSuccess'); // (4)
 });

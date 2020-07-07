@@ -2,12 +2,22 @@ doctype html
 html
   head(lang='ko')
     title 회원가입
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     link(href='/css/normalize.css', rel="stylesheet")
     link(href='/css/register/register.css', rel="stylesheet")
+    link(rel="stylesheet", href="/css/register/chooseInfo.css")
+    link(rel="stylesheet", href="/css/register/agreeInfo.css")
+    link(rel="stylesheet", href="/css/register/registerButton.css")
     link(href='/css/register/essentialInfo.css', rel="stylesheet")
     link(href='/css/register/register.css', rel="stylesheet")
     link(href='/css/register/title.css', rel="stylesheet")
+
   body
     .big-box
       include title.pug
       include essentialInfo.pug
+      include ./chooseInfo.pug 
+      include ./agreeInfo.pug
+      include ./registerButton.pug  
+    

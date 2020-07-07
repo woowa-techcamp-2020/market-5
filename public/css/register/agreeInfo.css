@@ -1,0 +1,29 @@
+.agree-box{
+    width: 100%;
+    margin-top: 30px;
+}
+
+.low-rank{
+    font-size: 14px;
+    padding-top: 8px;
+}
+
+.agree-terms{
+    margin-left: 56px;
+}
+
+.agree-box a{
+    margin-left: 10px;
+    color: gray;
+    font-size: 12px;
+}
+
+.agree-box p{
+    display: inline-block;
+    margin-left: 13px;
+    color: gray;
+    font-size: 12px;
+}
+
+
+
