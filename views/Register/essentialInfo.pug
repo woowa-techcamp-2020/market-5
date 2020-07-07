@@ -1,31 +1,32 @@
 doctype html
 html
-body
-    block content
-        .essential
-            .NanumSquareRound
-                p(style="color:black; font-size:20px; text-align: center;") 필수 정보를 입력해주세요.
-                input(name="id", type="text" placeholder="아이디* (4~20자)")
-                p.errorId(style="display:none;")
-                input(name="password", type="password" placeholder="비밀번호* (영문+숫자, 8~20자)")
-                p.errorPassword(style="display:none;")
-                input(name="passwordSecond" type="password" placeholder="비밀번호 재확인*")
-                p.errorPasswordSecond(style="display:none;")
-                .email-box
-                    input(class="email-first" type="text" placeholder="이메일 앞자리*")
-                    span(class="at") @
-                    input(class="email-second" type="text" placeholder="이메일 뒷자리*")
-                select(name="email" class="email")
-                    option(value="") 이메일선택
-                    option(value="naver") naver.com
-                    option(value="daum") daum.com
-                    option(value="nate") nate.com
-                    option(value="gmail") gmail.com
-                    option(value="selft") 직접입력
-                input(type="text" placeholder="이름*")
-                .phone-box
-                    input(id="phone" type="text" placeholder="휴대폰*")
-                    button(id="certification") 인증받기
-                p(style="text-align: center; padding-top: 20px") * 인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
-                p(style="text-align: center;") * 인증번호가 도착하지 않을 경우 ‘인증번호 재전송’을 눌러주세요.
+    body
+        block content
+            .essential
+                .NanumSquareRound
+                    p(style="color:black; font-size:20px; text-align: center;") 필수 정보를 입력해주세요.
+                    input(name="id", type="text" placeholder="아이디* (4~20자)")
+                    p.errorId(style="display:none;")
+                    input(name="password", type="password" placeholder="비밀번호* (영문+숫자, 8~20자)")
+                    p.errorPassword(style="display:none;")
+                    input(name="passwordSecond" type="password" placeholder="비밀번호 재확인*")
+                    p.errorPasswordSecond(style="display:none;")
+                    .email-box
+                        input(class="email-first" type="text" placeholder="이메일 앞자리*")
+                        span(class="at") @
+                        input(class="email-second" type="text" placeholder="이메일 뒷자리*" disabled)
+                    p.errorEmail(style="display:none;")
+                    select(name="email" class="email")
+                        option(value="") 이메일선택
+                        option(value="naver.com") naver.com
+                        option(value="daum.com") daum.com
+                        option(value="nate.com") nate.com
+                        option(value="gmail.com") gmail.com
+                        option(value="self") 직접입력
+                    input(type="text" placeholder="이름*")
+                    .phone-box
+                        input(id="phone" type="text" placeholder="휴대폰*")
+                        button(id="certification") 인증받기
+                    p(style="text-align: center; padding-top: 20px") * 인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
+                    p(style="text-align: center;") * 인증번호가 도착하지 않을 경우 ‘인증번호 재전송’을 눌러주세요.
 

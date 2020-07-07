@@ -9,4 +9,4 @@ function emailValidator(emailSecond) {
     }
 }
 
-module.exports = emailValidator;
+export default emailValidator;
