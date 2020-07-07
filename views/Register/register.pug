@@ -16,8 +16,11 @@ html
   body
     .big-box
       include title.pug
-      include essentialInfo.pug
-      include ./chooseInfo.pug 
-      include ./agreeInfo.pug
-      include ./registerButton.pug  
+      form(action="/register", method="post")
+        include essentialInfo.pug
+        include ./chooseInfo.pug 
+        include ./agreeInfo.pug
+        include ./registerButton.pug  
+    script(src="/javascripts/register/essentialInfo.js", type="module")
+    //- script(src="/javascripts/utils/passwordValidator.js", type="module")
     
