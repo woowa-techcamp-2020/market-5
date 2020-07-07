@@ -2,6 +2,8 @@
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
     background-color: blue;
     box-sizing: border-box;
     padding-top: 2px;
