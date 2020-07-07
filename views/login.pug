@@ -1,4 +1,16 @@
 doctype html
-head
-  title login
-h1 로그인
+html
+  head(lang='ko')
+    title 로그인
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(href='./css/login.css', rel="stylesheet")
+
+  body
+      .big-box
+        .hanna
+            p(style="color:#2AC1BC; font-size:30px; text-align: center;") 배민 사장님광장
+        .NanumSquareRound
+            input(type="text" placeholder="아이디")
+            input(type="password" placeholder="비밀번호")
+            button(id="login") 로그인
