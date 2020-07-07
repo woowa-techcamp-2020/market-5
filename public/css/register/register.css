@@ -3,86 +3,11 @@
     font-family: 'Hanna', fantasy;
 }
 
-@font-face {
-    font-family: 'BMHANNAAir';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-
-.hannaAir * {
-    font-family: 'BMHANNAAir';
-}
-
 .big-box {
+    display: block;
     margin: 0 auto;
     max-width: 750px;
     width: 90%;
     border: 1px solid black;
     height: 900px;
-}
-
-.email-first {
-    display: block;
-    margin: 10px auto;
-    width: 150px;
-    height: 50px;
-    display: inline-block;
-    margin-left: 163px;
-    padding-left: 20px
-}
-
-.email-second {
-    margin: 10px auto;
-    width: 180px;
-    height: 50px;
-    display: inline-block;
-    margin-left: 20px;
-    padding-left: 20px;
-}
-
-.at {
-    padding-left: 10px;
-}
-
-input {
-    display: block;
-    margin: 10px auto;
-    width: 400px;
-    height: 50px;
-    padding-left: 20px;
-    border: 0.5px solid lightgray;
-}
-
-.email {
-    display: block;
-    margin: 10px auto;
-    width: 425px;
-    height: 50px;
-    padding-left: 20px;
-    border: 0.5px solid lightgray;
-}
-
-.phone {
-    display: block;
-    margin: 10px auto;
-    width: 250px;
-    height: 50px;
-    display: inline-block;
-    margin-left: 163px;
-    padding-left: 20px
-}
-
-.certification {
-    margin: 10px auto;
-    width: 130px;
-    height: 55px;
-    display: inline-block;
-    margin-left: 20px;
-    padding-left: 10px;
-    border: 0.5px solid lightgray;
-    color: gray;
-    font-weight: bold;
-    font-size: 20px;
-    background-color: white;
 }
