@@ -7,13 +7,13 @@
 } 
 
 .choose-box__title{
-    width: 360px;
+    width: 297px;
     display: flex;
     justify-content: space-between;
 }
 
 .choose-box__title a{
-    margin-left: 10px;
+    margin-left: 5px;
     text-decoration:underline;
     color: gray;
     opacity: 0.7;
