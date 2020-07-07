@@ -10,6 +10,10 @@
     width: 90%;
 }
 
+input[type='button']{
+  cursor: pointer;
+}
+
 /* checkbox customize하는 부분 */
 .container {
     justify-content: center;
