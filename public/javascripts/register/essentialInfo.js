@@ -1,10 +1,13 @@
 import passwordValidator from '../utils/passwordValidator.js';
+import phoneNumReorder from '../utils/phoneNumReorder.js';
 
 const inputPassword = document.getElementsByName('password')[0];
 const inputPasswordSecond = document.getElementsByName('passwordSecond')[0]
+const inputPhoneNum = document.getElementById('phone')
 
 inputPassword.addEventListener('keyup', checkPassword);
 inputPasswordSecond.addEventListener('keyup', comparePassword);
+inputPhoneNum.addEventListener('keyup', reorderPhoneNum);
 
 function checkPassword(){
     const password = inputPassword.value;
@@ -35,3 +38,10 @@ function comparePassword(){
         inputPasswordSecond.style.borderColor = "black";
     }
 }
+
+function reorderPhoneNum(){
+    const phoneNum = inputPhoneNum.value;
+    const reorderedNum = phoneNumReorder(phoneNum);
+    inputPhoneNum.value = reorderedNum;
+}
+

@@ -10,4 +10,5 @@ function phoneNumReorder(value){
     return value;
 }
 
-module.exports = phoneNumReorder;
+// module.exports = phoneNumReorder;
+export default phoneNumReorder;
