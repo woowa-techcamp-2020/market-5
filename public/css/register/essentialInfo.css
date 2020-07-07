@@ -10,23 +10,24 @@
 }
 
 .email-box {
-    margin: auto;
-    width: 100%;
-    height: 50px;
     display: flex;
+    justify-content: space-between;
 }
 
 .email-first {
-    width: 50%;
-    display: inline-block;
+    width: 40%;
+    height: 100%;
 }
 
 .at {
     display: inline-block;
+    padding-top: 40px;
+    padding-right: 5px;
+    padding-left: 5px;
 }
 
 .email-second {
-    width: 40%;
+    width: 60%;
     display: inline-block;
 }
 
@@ -47,14 +48,15 @@
 }
 
 .phone {
-    width: 300px;
+    width: 250px;
     height: 50px;
 }
 
 .certification {
     width: 100px;
-    height: 50px;
+    height: 60px;
     border: 0.5px solid lightgray;
+    margin: 15px auto;
     color: gray;
     font-weight: bold;
     font-size: 18px;
