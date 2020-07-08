@@ -1,11 +1,11 @@
-import {checkPhoneNumEmpty} from './formCheck.js';
+import { checkPhoneNumEmpty } from './formCheck.js';
 
 let interval = null;
 const TIMER_SECONDS = 120;
 
-function countDown(time, timeLeftBox){
+function countDown(time, timeLeftBox) {
     interval = setInterval(() => {
-        if(time==0) {
+        if (time == 0) {
             timeLeftBox.textContent = '입력시간을 초과하였습니다';
             clearInterval(interval);
         }
@@ -15,16 +15,16 @@ function countDown(time, timeLeftBox){
     }, 1000)
 }
 
-function getMinuteAndSecond(time){
+function getMinuteAndSecond(time) {
     const minute = Math.floor(time / 60);
     const second = Math.floor(time % 60);
     return `${minute} : ${second}`
 }
 
-function certify(e){
+function certify(e) {
     e.preventDefault();
 
-    if(!checkPhoneNumEmpty()){
+    if (!checkPhoneNumEmpty()) {
         return alert('휴대폰 번호를 먼저 입력해주세요');
     }
 
@@ -32,21 +32,26 @@ function certify(e){
     const timeLeftBox = document.querySelector('.time-left-box');
     clearInterval(interval);
     countDown(TIMER_SECONDS, timeLeftBox);
-    if(text === '인증받기'){
-        timeLeftBox.style.display="block";
+    if (text === '인증받기') {
+        timeLeftBox.style.display = "inline";
+        timeLeftBox.style.position = "absolute"
+        timeLeftBox.style.top = "15px";
+        timeLeftBox.style.right = "20px";
+        timeLeftBox.style.color = "red";
         e.target.textContent = '재전송';
         document.querySelector('.verification-box').style.display = "block";
         e.target.style.borderColor = "blue";
         e.target.style.color = "blue";
         document.querySelector('.verification-message').style.display = "block";
+        document.querySelector('#verificationInput').style.borderColor = "red";
     }
 }
 
-function verify(e){
+function verify(e) {
     e.preventDefault();
     const verificationNum = document.querySelector('#verificationInput').value;
-    if(verificationNum !== '1234') {
-        document.querySelector('.verification-message').textContent="맞지 않습니다.";
+    if (verificationNum !== '1234') {
+        document.querySelector('.verification-message').textContent = "맞지 않습니다.";
         document.querySelector('.verification-message').style.color = "red";
         return;
     }
