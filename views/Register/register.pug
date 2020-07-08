@@ -18,12 +18,13 @@ html
       include title.pug
       form(action="/register", method="post")
         include essentialInfo.pug
-        include ./chooseInfo.pug 
+        include ./chooseInfo.pug
         include ./agreeInfo.pug
         include ./registerButton.pug  
-    script(type="text/javascript").
-      var errorSet = new Set();
-    script(src="/javascripts/register/essentialInfo.js", type="module")
+    .modal-box
+    script(src="/javascripts/register/essentialInfo/essentialInfo.js", type="module")
     script(src="/javascripts/register/agreeInfo.js", type="module")
     script(src="/javascripts/register/registerButton.js", type="module")
+    script(src="/javascripts/register/chooseInfo.js", type="module")
+    script(src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
     
