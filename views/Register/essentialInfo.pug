@@ -23,7 +23,8 @@ html
                         option(value="nate.com") nate.com
                         option(value="gmail.com") gmail.com
                         option(value="self") 직접입력
-                    input(type="text" placeholder="이름*")
+                    input(class="name" type="text" placeholder="이름*")
+                    p.errorName(style="display:none;")
                     .phone-box
                         input(id="phone", type="text" placeholder="휴대폰*")
                         button(id="certification") 인증받기
