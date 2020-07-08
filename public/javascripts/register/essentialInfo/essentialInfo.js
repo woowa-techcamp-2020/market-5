@@ -19,8 +19,8 @@ import {
 // 아이디
 const inputId = document.getElementsByName('id')[0];
 // 패스워드
-const inputPassword = document.getElementsByName('password')[0];
-const inputPasswordSecond = document.getElementsByName('passwordSecond')[0]
+const inputPassword = document.getElementById('password');
+const inputPasswordSecond = document.getElementById('passwordSecond')
     // 휴대폰 번호
 const inputPhoneNum = document.getElementById('phone')
     // 이름

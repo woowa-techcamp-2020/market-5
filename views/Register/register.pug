@@ -16,7 +16,7 @@ html
   body
     .big-box
       include title.pug
-      form(action="/register", method="post")
+      form(action="/register", method="post", id="register-form")
         include essentialInfo.pug
         include ./chooseInfo.pug
         include ./agreeInfo.pug
