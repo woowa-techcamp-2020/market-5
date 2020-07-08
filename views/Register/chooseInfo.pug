@@ -2,17 +2,17 @@
     .choose-box__title
         label.container
             | 선택 정보를 입력하시겠어요?
-            input(type='checkbox' checked='checked')
+            input(type='checkbox', id="address-checkbox")
             span.checkmark
         a(link='#') 내용보기
     .choose-box__zipcode 
-        input(type='text', placeholder='우편번호')
-        input(type='button', value='주소찾기')    
+        input(type='text', placeholder='우편번호', disabled)
+        input(type='button', value='주소찾기', disabled)    
     #layer
         div 주소 검색
         img#btnCloseLayer(src='//t1.daumcdn.net/postcode/resource/images/close.png' style='cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1' alt='닫기 버튼')
     
 
-    input(type='text', placeholder='주소').address-input
-    input(type='text', placeholder='상세주소').address-input
+    input(type='text', placeholder='주소', disabled).address-input
+    input(type='text', placeholder='상세주소', disabled).address-input
 
