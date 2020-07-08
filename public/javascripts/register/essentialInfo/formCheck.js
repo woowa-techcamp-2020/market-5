@@ -13,12 +13,14 @@ function checkId() {
         errorId.style.color = "gray";
         inputId.style.borderColor = "black";
         errorId.style.display = "block";
+        return true;
     } else {
         errorId.textContent = '입력하신 아이디로 사용이 불가합니다'
         errorId.style.color = "red";
         inputId.style.borderColor = "red";
         errorId.style.display = "block";
         inputId.focus();
+        return false;
     }
 }
 
@@ -27,8 +29,10 @@ function checkEmail(){
     if(!Email.value.length){
         Email.style.borderColor = "red";
         Email.focus();
+        return false;
     }else{
         Email.style.borderColor = "black";
+        return true;
     }
 }
 
@@ -42,6 +46,7 @@ function checkEmailDomain() {
         errorEmail.style.display = 'block';
         errorEmail.innerText = '사용가능한 이메일입니다'
         errorEmail.style.color = "gray";
+        return true;
     } else {
         inputEmail.style.borderColor = 'red';
         errorEmail.style.display = 'block';
@@ -49,6 +54,7 @@ function checkEmailDomain() {
         else errorEmail.innerText = '사용불가한 이메일입니다'
         errorEmail.style.color = "red";
         inputEmail.focus();
+        return false;
     }
 }
 
@@ -62,9 +68,11 @@ function checkPassword() {
         errorPassword.textContent = result;
         inputPassword.style.borderColor = "red";
         inputPassword.focus();
+        return false;
     } else {
         errorPassword.style.display = "none";
         inputPassword.style.borderColor = "black";
+        return true;
     }
 }
 
@@ -80,9 +88,11 @@ function comparePassword() {
         errorPassworSecond.innerHTML = ERR_MESSAGE;
         inputPasswordSecond.style.borderColor = "red";
         inputPasswordSecond.focus();
+        return false;
     } else {
         errorPassworSecond.style.display = "none";
         inputPasswordSecond.style.borderColor = "black";
+        return true;
     }
 }
 
@@ -99,8 +109,10 @@ function checkPhoneNumEmpty(){
     if(!inputPhoneNum.value.length){
         inputPhoneNum.style.borderColor = "red";
         inputPhoneNum.focus();
+        return false;
     }else{
         inputPhoneNum.style.borderColor = "black";
+        return true;
     }
 }
 
@@ -126,11 +138,13 @@ function checkName(){
     if(nameValidator(name)){
         errorName.style.display = "none";
         inputName.style.borderColor = "black";
+        return true;
     }else{
         errorName.style.display="block";
         errorName.textContent = "특수문자나 숫자는 사용할 수 없습니다";
         inputName.style.borderColor = "red";
         inputName.focus();
+        return false;
     }
 }
 
@@ -140,6 +154,7 @@ export {
     checkEmailDomain,
     checkPassword,
     comparePassword,
+    checkPhoneNumEmpty,
     checkPhoneNum,
     reorderPhoneNum,
     checkName,

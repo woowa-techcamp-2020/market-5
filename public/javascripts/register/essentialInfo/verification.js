@@ -48,6 +48,7 @@ function verify(e){
     document.querySelector('#certification').textContent = "인증 완료"
 }
 
+
 export {
     countDown,
     getMinuteAndSecond,
