@@ -47,21 +47,22 @@
         display: flex;
         position: relative;
     }
-
-    .verification-box{
+    
+    .verification-box {
         margin-top: 15px;
     }
-
-    .verification-input-box{
+    
+    .verification-input-box {
         display: flex;
     }
     
-    .verification-input-box input[type='text']{
+    .verification-input-box input[type='text'] {
         margin: auto;
         width: 68%;
         height: 50px;
     }
-    .verification-input-box button{
+    
+    .verification-input-box button {
         width: 32%;
         height: 50px;
         border: 0.5px solid lightgray;
@@ -71,6 +72,7 @@
         font-size: 18px;
         background-color: white;
     }
+    
     #phone {
         margin: auto;
         width: 68%;
