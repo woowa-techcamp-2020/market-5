@@ -77,8 +77,8 @@ function checkPassword() {
 }
 
 function comparePassword() {
-    const inputPassword = document.getElementsByName('password')[0];
-    const inputPasswordSecond = document.getElementsByName('passwordSecond')[0]
+    const inputPassword = document.getElementById('password');
+    const inputPasswordSecond = document.getElementById('passwordSecond')
     const password = inputPassword.value;
     const passwordSecond = inputPasswordSecond.value;
     const errorPassworSecond = document.querySelector('.errorPasswordSecond');

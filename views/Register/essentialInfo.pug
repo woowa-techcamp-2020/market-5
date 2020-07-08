@@ -9,24 +9,24 @@ html
                     p.errorId(style="display:none;")
                     input(id="password" name="password", type="password" placeholder="비밀번호* (영문+숫자, 8~20자)")
                     p.errorPassword(style="display:none;")
-                    input(id="passwordSecond" name="passwordSecond" type="password" placeholder="비밀번호 재확인*")
+                    input(id="passwordSecond" type="password" placeholder="비밀번호 재확인*")
                     p.errorPasswordSecond(style="display:none;")
                     .email-box
                         input(id="email-first" class="email-first" type="text" placeholder="이메일 앞자리*")
                         span(class="at") @
                         input(id="email-second" class="email-second" type="text" placeholder="이메일 뒷자리*" disabled)
                     p.errorEmail(style="display:none;")
-                    select(name="email" class="email")
+                    select(class="email")
                         option(value="") 이메일선택
                         option(value="naver.com") naver.com
                         option(value="daum.com") daum.com
                         option(value="nate.com") nate.com
                         option(value="gmail.com") gmail.com
                         option(value="self") 직접입력
-                    input(type="text" placeholder="이름*" id="name")
+                    input(type="text" placeholder="이름*" name="username" id="name")
                     p.errorName(style="display:none;")
                     .phone-box
-                        input(id="phone", type="text" placeholder="휴대폰*")
+                        input(id="phone", type="text" name="phoneNum" placeholder="휴대폰*")
                         button(id="certification") 인증받기
                     .verification-box(style="display:none;")
                         .verification-input-box
