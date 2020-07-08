@@ -1,12 +1,12 @@
 .agree-box
     label.container
         | 전체 약관에 동의합니다
-        input(type='checkbox' checked='checked')
+        input(type='checkbox', id="total-agreement")
         span.checkmark
     
     label.container.low-rank
         | 필수 항목에 동의합니다.
-        input(type='checkbox' checked='checked')
+        input(type='checkbox', id="essential-agreement")
         span.checkmark
     
     .agree-terms
@@ -15,7 +15,7 @@
 
     label.container.low-rank
         | 광고성 정보 수신 동의(선택)
-        input(type='checkbox' checked='checked')
+        input(type='checkbox', id="choose-agreement")
         span.checkmark
     
     p * 14세 이상 회원만 가입 가능합니다.
