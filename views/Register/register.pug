@@ -18,9 +18,12 @@ html
       include title.pug
       form(action="/register", method="post")
         include essentialInfo.pug
-        include ./chooseInfo.pug 
+        include ./chooseInfo.pug
         include ./agreeInfo.pug
         include ./registerButton.pug  
+    .modal-box
     script(src="/javascripts/register/essentialInfo.js", type="module")
+    script(src="/javascripts/register/chooseInfo.js", type="module")
     //- script(src="/javascripts/utils/passwordValidator.js", type="module")
+    script(src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js")
     

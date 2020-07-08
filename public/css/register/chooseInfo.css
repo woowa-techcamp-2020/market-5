@@ -1,26 +1,26 @@
-.choose-box{
+.choose-box {
     width: 100%;
 }
 
-.choose-box input{
+.choose-box input {
     box-sizing: border-box;
-} 
+}
 
-.choose-box__title{
+.choose-box__title {
     width: 297px;
     display: flex;
     justify-content: space-between;
 }
 
-.choose-box__title a{
+.choose-box__title a {
     margin-left: 5px;
-    text-decoration:underline;
+    text-decoration: underline;
     color: gray;
     opacity: 0.7;
     margin-top: 6px;
 }
 
-.choose-box__zipcode{
+.choose-box__zipcode {
     display: flex;
     justify-content: space-between;
     height: 60px;
@@ -28,7 +28,7 @@
     /* border: none; */
 }
 
-.choose-box__zipcode input[type='text']{
+.choose-box__zipcode input[type='text'] {
     padding-left: 20px;
     padding-top: 4px;
     width: 68%;
@@ -36,15 +36,14 @@
     border: 0.5px solid lightgray;
 }
 
-
-.choose-box__zipcode input[type="button"]{
+.choose-box__zipcode input[type="button"] {
     padding-top: 8px;
     width: 25%;
     height: 100%;
     background-color: transparent;
 }
 
-.address-input{
+.address-input {
     padding-left: 20px;
     padding-top: 4px;
     margin-top: 15px;
@@ -53,3 +52,20 @@
     border: 0.5px solid lightgray;
 }
 
+#layer div {
+    height: 40px;
+    font-size: 15px;
+    color: white;
+    background-color: #2196F3;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+#layer {
+    display: none;
+    position: fixed;
+    overflow: hidden;
+    z-index: 2;
+    -webkit-overflow-scrolling: touch;
+    border: none;
+}
