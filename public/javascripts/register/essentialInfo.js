@@ -159,8 +159,8 @@ function certify(e) {
     if (text === '인증받기') {
         timeLeftBox.style.display = "inline";
         timeLeftBox.style.position = "absolute"
-        timeLeftBox.style.top = "660px";
-        timeLeftBox.style.left = "290px";
+        timeLeftBox.style.top = "15px";
+        timeLeftBox.style.right = "20px";
         timeLeftBox.style.color = "red";
         e.target.textContent = '재전송';
         document.querySelector('.verification-box').style.display = "block";

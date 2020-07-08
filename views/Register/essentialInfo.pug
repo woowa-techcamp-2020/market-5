@@ -27,10 +27,11 @@ html
                     .phone-box
                         input(id="phone", type="text" placeholder="휴대폰*")
                         button(id="certification") 인증받기
-                    p.time-left-box(style="display:none;")
                     .verification-box(style="display:none;")
                         .verification-input-box
-                            input(id="verificationInput", type="text" placeholder="인증번호를 입력해주세요")
+                            .number-box
+                                input(id="verificationInput", type="text" placeholder="인증번호를 입력해주세요")
+                                p.time-left-box(style="display:none; margin:auto;")
                             button(id="verficationButton") 확인
                         p.verification-message(style="display:none; text-align:center;") 인증번호를 입력해주세요
                         p(style="text-align: center; padding-top: 20px") * 인증번호 전송은 통신사에 따라 최대 1분까지 소요될 수 있습니다.
