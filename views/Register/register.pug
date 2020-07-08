@@ -21,6 +21,9 @@ html
         include ./chooseInfo.pug 
         include ./agreeInfo.pug
         include ./registerButton.pug  
+    script(type="text/javascript").
+      var errorSet = new Set();
     script(src="/javascripts/register/essentialInfo.js", type="module")
     script(src="/javascripts/register/agreeInfo.js", type="module")
+    script(src="/javascripts/register/registerButton.js", type="module")
     
