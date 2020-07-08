@@ -1,10 +1,29 @@
+const addressCheckbox = document.getElementById('address-checkbox');
 const findAddress = document.querySelector('div.choose-box__zipcode > input[type=button]')
 const closeAddress = document.querySelector('#btnCloseLayer')
 
+addressCheckbox.addEventListener('click', handleAddress)
 findAddress.addEventListener('click', showModal);
 closeAddress.addEventListener('click', closeDaumPostcode);
 
 var element_layer = document.getElementById('layer');
+
+function handleAddress(e){
+    if(e.target.checked){
+        setDisabled(false);
+    }else{
+        setDisabled(true);
+    }
+}
+
+function setDisabled(value){
+    const inputTextList = document.querySelectorAll('.choose-box > input[type=text]');
+    const zipCodeButton = document.querySelector('.choose-box__zipcode > input[type=button]');
+    inputTextList.forEach(input => {
+        input.disabled = value;
+    })
+    zipCodeButton.disabled = value;
+}
 
 function closeDaumPostcode() {
     document.querySelector('.modal-box').style.display = "none"
