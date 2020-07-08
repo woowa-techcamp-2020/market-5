@@ -21,15 +21,15 @@ const inputId = document.getElementsByName('id')[0];
 // 패스워드
 const inputPassword = document.getElementsByName('password')[0];
 const inputPasswordSecond = document.getElementsByName('passwordSecond')[0]
-// 휴대폰 번호
+    // 휴대폰 번호
 const inputPhoneNum = document.getElementById('phone')
-// 이름
-const inputName = document.getElementById('name'); 
+    // 이름
+const inputName = document.getElementById('name');
 // 이메일
 const inputEmail = document.querySelector('.email-first');
 const inputEmailDomain = document.querySelector('.email-second');
 const selectEmail = document.querySelector('.email')
-// 인증
+    // 인증
 const certificationButton = document.querySelector('#certification')
 const verficationButton = document.querySelector('#verficationButton');
 
@@ -64,4 +64,3 @@ function addEmail() {
         }
     }
 }
-

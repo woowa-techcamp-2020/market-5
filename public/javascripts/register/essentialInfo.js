@@ -2,20 +2,23 @@ import idValidator from '../utils/idValidator.js';
 import passwordValidator from '../utils/passwordValidator.js';
 import phoneNumReorder from '../utils/phoneNumReorder.js';
 import emailValidator from '../utils/emailValidator.js';
+import nameValidator from '../utils/nameValidator.js';
 
 // 아이디
 const inputId = document.getElementsByName('id')[0];
 // 패스워드
 const inputPassword = document.getElementsByName('password')[0];
-const inputPasswordSecond = document.getElementsByName('passwordSecond')[0]
-    // 휴대폰 번호
-const inputPhoneNum = document.getElementById('phone')
-    // 이메일
-const inputEmail = document.querySelector('.email-second')
-const selectEmail = document.querySelector('.email')
-    // 인증
-const certificationButton = document.querySelector('#certification')
+const inputPasswordSecond = document.getElementsByName('passwordSecond')[0];
+// 휴대폰 번호
+const inputPhoneNum = document.getElementById('phone');
+// 이메일
+const inputEmail = document.querySelector('.email-second');
+const selectEmail = document.querySelector('.email');
+// 인증
+const certificationButton = document.querySelector('#certification');
 const verficationButton = document.querySelector('#verficationButton');
+// 이름
+const inputName = document.querySelector('.name');
 
 inputId.addEventListener('keyup', checkId);
 
@@ -28,11 +31,29 @@ inputEmail.addEventListener('keyup', checkEmail);
 inputEmail.addEventListener('change', checkEmail);
 selectEmail.addEventListener('change', addEmail);
 
+inputName.addEventListener('keyup', checkName);
+
 certificationButton.addEventListener('click', certify)
 verficationButton.addEventListener('click', verify)
 
 let interval = null;
 const TIMER_SECONDS = 120;
+
+function checkName() {
+    const name = inputName.value;
+    const errorName = document.querySelector('.errorName')
+    if (!nameValidator(name) || name.length == 0) {
+        errorName.innerText = '입력하신 이름으로 사용이 불가합니다'
+        errorName.style.color = "red"
+        inputName.style.borderColor = "red"
+        errorName.style.display = "block"
+    } else {
+        errorName.style.display = "block"
+        errorName.innerText = '입력하신 이름으로 사용이 가능합니다'
+        errorName.style.color = "gray"
+        inputName.style.borderColor = "black"
+    }
+}
 
 function addEmail() {
     const email = selectEmail.value;

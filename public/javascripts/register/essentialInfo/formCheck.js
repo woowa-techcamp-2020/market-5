@@ -24,13 +24,13 @@ function checkId() {
     }
 }
 
-function checkEmail(){
+function checkEmail() {
     const Email = document.getElementById('email-first');
-    if(!Email.value.length){
+    if (!Email.value.length) {
         Email.style.borderColor = "red";
         Email.focus();
         return false;
-    }else{
+    } else {
         Email.style.borderColor = "black";
         return true;
     }
@@ -96,21 +96,21 @@ function comparePassword() {
     }
 }
 
-function checkPhoneNum(e){
+function checkPhoneNum(e) {
     const keyCode = e.keyCode;
-    if(keyCode<48 || keyCode>57){
-        if(keyCode != 8) return false;
+    if (keyCode < 48 || keyCode > 57) {
+        if (keyCode != 8) return false;
     }
     return true;
 }
 
-function checkPhoneNumEmpty(){
+function checkPhoneNumEmpty() {
     const inputPhoneNum = document.getElementById('phone');
-    if(!inputPhoneNum.value.length){
+    if (!inputPhoneNum.value.length) {
         inputPhoneNum.style.borderColor = "red";
         inputPhoneNum.focus();
         return false;
-    }else{
+    } else {
         inputPhoneNum.style.borderColor = "black";
         return true;
     }
@@ -121,30 +121,30 @@ function reorderPhoneNum(e) {
 
     checkPhoneNumEmpty();
 
-    if(e.keyCode === 8 ) return;
-    if(checkPhoneNum(e)){
+    if (e.keyCode === 8) return;
+    if (checkPhoneNum(e)) {
         const phoneNum = inputPhoneNum.value;
         const reorderedNum = phoneNumReorder(phoneNum);
         inputPhoneNum.value = reorderedNum;
-    }else{
+    } else {
         inputPhoneNum.value = '';
     }
 }
 
-function checkName(){
+function checkName() {
     const inputName = document.getElementById('name');
     const name = inputName.value;
-    const errorName = document.querySelector('.errorName');
-    if(nameValidator(name)){
-        errorName.style.display = "none";
-        inputName.style.borderColor = "black";
-        return true;
-    }else{
-        errorName.style.display="block";
-        errorName.textContent = "특수문자나 숫자는 사용할 수 없습니다";
-        inputName.style.borderColor = "red";
-        inputName.focus();
-        return false;
+    const errorName = document.querySelector('.errorName')
+    if (!nameValidator(name) || name.length == 0) {
+        errorName.innerText = '입력하신 이름으로 사용이 불가합니다'
+        errorName.style.color = "red"
+        inputName.style.borderColor = "red"
+        errorName.style.display = "block"
+    } else {
+        errorName.style.display = "block"
+        errorName.innerText = '입력하신 이름으로 사용이 가능합니다'
+        errorName.style.color = "gray"
+        inputName.style.borderColor = "black"
     }
 }
 
