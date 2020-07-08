@@ -7,7 +7,11 @@
         a(link='#') 내용보기
     .choose-box__zipcode 
         input(type='text', placeholder='우편번호')
-        input(type='button', value='주소찾기')
+        input(type='button', value='주소찾기')    
+    #layer
+        div 주소 검색
+        img#btnCloseLayer(src='//t1.daumcdn.net/postcode/resource/images/close.png' style='cursor:pointer;position:absolute;right:-3px;top:-3px;z-index:1' alt='닫기 버튼')
+    
 
     input(type='text', placeholder='주소').address-input
     input(type='text', placeholder='상세주소').address-input
