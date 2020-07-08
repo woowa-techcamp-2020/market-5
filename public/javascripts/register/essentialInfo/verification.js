@@ -1,3 +1,5 @@
+import {checkPhoneNumEmpty} from './formCheck.js';
+
 let interval = null;
 const TIMER_SECONDS = 120;
 
@@ -21,6 +23,11 @@ function getMinuteAndSecond(time){
 
 function certify(e){
     e.preventDefault();
+
+    if(!checkPhoneNumEmpty()){
+        return alert('휴대폰 번호를 먼저 입력해주세요');
+    }
+
     const text = e.target.textContent;
     const timeLeftBox = document.querySelector('.time-left-box');
     clearInterval(interval);
