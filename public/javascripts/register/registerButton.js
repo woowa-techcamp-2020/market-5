@@ -54,10 +54,15 @@ function makeFormData(){
     const emailSecond = document.getElementById('email-second').value;
     const email = emailFirst + '@' + emailSecond;
 
+    const addressFirst = document.getElementById('address').value;
+    const addressDetail = document.getElementById('address-detail').value;
+    const address = addressFirst + ' ' + addressDetail;
+     
     const essentialAgreement = document.getElementById('essential-agreement').checked;
 
     formData.append('email', email);
     formData.append('essentialAgreement', essentialAgreement);
+    formData.append('address', address);
 
     return formData;
 }
