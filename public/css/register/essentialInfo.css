@@ -47,21 +47,28 @@
         display: flex;
         position: relative;
     }
-
-    .verification-box{
+    
+    .verification-box {
         margin-top: 15px;
     }
-
-    .verification-input-box{
+    
+    .verification-input-box {
         display: flex;
     }
     
-    .verification-input-box input[type='text']{
-        margin: auto;
+    .verification-input-box .number-box {
         width: 68%;
         height: 50px;
+        position: relative;
     }
-    .verification-input-box button{
+    
+    .verification-input-box input[type="text"] {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+    }
+    
+    .verification-input-box button {
         width: 32%;
         height: 50px;
         border: 0.5px solid lightgray;
@@ -71,6 +78,7 @@
         font-size: 18px;
         background-color: white;
     }
+    
     #phone {
         margin: auto;
         width: 68%;
