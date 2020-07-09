@@ -7,14 +7,13 @@ const { authenticate, cookieParser } = require('./middleware/authenticate.js');
 const deleteCookie = require('./cookie.js');
 const { mypageCallback, registerSuccessCallback } = require('./mypage.js');
 const loginChecked = require('./loginChecked.js');
+const mainCallback = require('./main.js');
 
 const router = express.Router();
 
 // get
 
-router.get('/', (req, res) => {
-    res.render('main'); // (3)
-});
+router.get('/', mainCallback);
 router.get('/register', (req, res) => {
     res.render('./Register/register'); // (4)
 });
