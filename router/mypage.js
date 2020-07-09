@@ -7,7 +7,7 @@ async function mypageCallback(req, res){
     const session = req.session;
     const userId = session.id;
     const user = await userInfo.findOne({ id: userId });
-
+    console.log('render');
     res.render('mypage', { name: user.username, id: user.id, email: user.email, phone: user.phoneNum });
 }
 

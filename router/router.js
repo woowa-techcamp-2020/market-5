@@ -20,7 +20,6 @@ router.get('/register', (req, res) => {
 });
 
 router.get('/mypage', authenticate, mypageCallback);
-
 router.get('/login', authenticate, loginChecked);
 
 // post
