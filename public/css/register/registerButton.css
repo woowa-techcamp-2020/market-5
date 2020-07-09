@@ -1,10 +1,11 @@
-.register-button{
+.register-button {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
-    background-color: blue;
+    background-color: #2ac1bc;
+    border: none;
     box-sizing: border-box;
     padding-top: 2px;
     display: block;
