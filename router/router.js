@@ -13,20 +13,36 @@ const router = express.Router();
 
 // get
 
-router.get('/', mainCallback);
-router.get('/register', (req, res) => {
+router.get('/', async(req, res) => {
+    await mainCallback(req, res);
+});
+router.get('/register', async(req, res) => {
     res.render('./Register/register'); // (4)
 });
 
-router.get('/register/success', authenticate, registerSuccessCallback);
-router.get('/mypage', authenticate, mypageCallback);
-router.get('/login', authenticate, loginChecked);
-
+router.get('/register/success', authenticate, async(req, res) => {
+    await registerSuccessCallback(req, res);
+});
+router.get('/mypage', authenticate, async(req, res) => {
+    await mypageCallback(req, res);
+});
+router.get('/login', authenticate, async(req, res) => {
+    await loginChecked(req, res);
+});
+router.get('/logout', async(req, res) => {
+    await deleteCookie(req, res);
+})
 // post
 
-router.post('/register', registerCallback);
-router.post('/register/check/id', doubleCheckId);
-router.post('/login', loginCallback);
+router.post('/register', async(req, res) => {
+    await registerCallback(req, res);
+});
+router.post('/register/check/id', async(req, res) => {
+    await doubleCheckId(req, res);
+});
+router.post('/login', async(req, res) => {
+    await loginCallback(req, res);
+});
 
 // delete
 router.delete('/cookie', deleteCookie)

@@ -7,14 +7,15 @@ head
   link(href='/css/main.css', rel="stylesheet")
 
 div.main-box
-  h4 사장님, 로그인해주세요!
-  input(type="button", value="배민사장님광장 로그인", href="/login", onclick="location.href='/login'")
+  p #{title}
+  input(type="button", value=buttonText, href=href, onclick=`location.href='${href}'`)
   div.link-box 
     a 아이디/비번 찾기
     span |
     a(href="/register") 회원가입
-     
+    if logout
+      span |
+      a(href=logoutHref id="logout") #{logout}
+    
 
   
-
-//- script(src="/javascripts/main.js", type="text/javascript")
