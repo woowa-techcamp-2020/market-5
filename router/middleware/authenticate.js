@@ -11,7 +11,7 @@ function authenticate(req, res, next){
     findSessionID(sessionID)
     .then(user => {
         console.log(user);
-        if(!user) return res.sendStatus(401);
+        if(!user) return res.render('login');
         return next();
     })
     .catch(err => {
