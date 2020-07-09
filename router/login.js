@@ -6,6 +6,7 @@ const encryption = require('../api/register/encryption.js');
 const { insertSessionID } = require('../api/register/database.js');
 
 async function loginCallback(req, res) {
+    console.log('body:', req.body);
 
     const ERR_ID = "아이디가 맞지 않습니다."
     const ERR_PASSWORD = "비밀번호가 맞지 않습니다."

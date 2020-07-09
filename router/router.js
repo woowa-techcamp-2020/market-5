@@ -21,7 +21,6 @@ router.get('/register', (req, res) => {
 
 router.get('/register/success', authenticate, registerSuccessCallback);
 router.get('/mypage', authenticate, mypageCallback);
-
 router.get('/login', authenticate, loginChecked);
 
 // post
