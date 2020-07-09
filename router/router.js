@@ -2,6 +2,7 @@ const express = require('express');
 
 const { registerCallback } = require('./register.js');
 const doubleCheckId = require('./doubleCheckId.js');
+const loginCallback = require('./login.js');
 
 const router = express.Router();
 
@@ -25,6 +26,7 @@ router.get('/login', (req, res) => {
 // post
 
 router.post('/register', registerCallback);
-router.post('/register/check/id', doubleCheckId)
+router.post('/register/check/id', doubleCheckId);
+router.post('/login', loginCallback);
 
 module.exports = router;

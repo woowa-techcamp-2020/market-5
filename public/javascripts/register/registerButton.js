@@ -23,24 +23,52 @@ function submitRegister(e){
     if(!checkAgreement()) return;
     if(!checkVerification()) return;
 
-    console.log('왜 안될까');
     const formData = makeFormData();
-    postData(formData)
+    postRegister(formData)
     .then(res => {
         return res.json()
     })
     .then(res => {
         alert(res.mes);
     })
+    .then(() => {
+        const id = formData.get('id');
+        const password = formData.get('password');
+        return postLogin(id, password);
+    })
+    .then(res => {
+        return res.json();
+    })
+    .then(res => {
+        alert(res.mes);
+    })
+    .catch(err => {
+        console.log(err);
+    })
 }
 
-function postData(formData){
+function postLogin(id, password){
+    const url = 'http://localhost:8000/login';
+    return fetch(url, {
+        method : 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body : JSON.stringify({
+            id,
+            password,
+        })
+    })
+}
+
+function postRegister(formData){
     const url = 'http://localhost:8000/register';
     return fetch(url, {
         method : 'POST',
         body : new URLSearchParams(formData),
     })
 }
+
 
 function makeFormData(){
     
