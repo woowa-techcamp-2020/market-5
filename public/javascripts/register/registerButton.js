@@ -13,28 +13,25 @@ registerButton.addEventListener('click', submitRegister)
 
 function submitRegister(e){
     e.preventDefault();
-    let check = true;
     
-    check = checkId();
-    check = checkPassword();
-    check = comparePassword();
-    check = checkEmail();
-    check = checkEmailDomain();
-    check = checkPhoneNumEmpty();
-    check = checkName();
-    check = checkAgreement();
-    check = checkVerification();
-    
-    if(check){
-        const formData = makeFormData();
-        postData(formData)
-        .then(() => {
-            console.log('전송 성공');
-        })
-        .catch(() => {
-            console.log('전송 실패');
-        })
-    }
+    if(!checkId()) return;
+    if(!comparePassword()) return;
+    if(!checkEmail()) return;
+    if(!checkEmailDomain()) return;
+    if(!checkPhoneNumEmpty()) return;
+    if(!checkName()) return;
+    if(!checkAgreement()) return;
+    if(!checkVerification()) return;
+
+    console.log('왜 안될까');
+    const formData = makeFormData();
+    postData(formData)
+    .then(res => {
+        return res.json()
+    })
+    .then(res => {
+        alert(res.mes);
+    })
 }
 
 function postData(formData){

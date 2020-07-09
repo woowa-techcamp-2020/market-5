@@ -9,4 +9,4 @@ function idValidator(id) {
     }
 }
 
-export default idValidator;
+module.exports = idValidator;
