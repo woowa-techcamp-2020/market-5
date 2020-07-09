@@ -4,7 +4,7 @@ const app = express();
 const route = require('./router.js');
 
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use('/', route);
 
 app.set('view engine', 'pug'); // (1)
