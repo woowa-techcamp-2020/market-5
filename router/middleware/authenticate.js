@@ -2,8 +2,10 @@ const {findSessionID} =  require('../../api/register/database.js');
 
 function authenticate(req, res, next){
     const cookies = req.headers.cookie;
+
+    if(!cookies) return res.render('login');
+
     const parsedCookie = cookieParser(cookies);
-    console.log(parsedCookie);
 
     const sessionID = parsedCookie.sessionID;
     if(!sessionID) return res.render('login');
