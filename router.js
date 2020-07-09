@@ -22,7 +22,7 @@ router.get('/login', (req, res) => {
     res.render('login'); // (4)
 });
 
-router.post('/idCheck', async(req, res) => {
+router.post('/register/check/id', async(req, res) => {
     const id = req.body.id
     const hasId = await checkId(id)
     res.json({
