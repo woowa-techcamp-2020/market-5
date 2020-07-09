@@ -1,4 +1,4 @@
-import idValidator from '../../utils/idValidator.js';
+import idValidator from '../../utils/idValidator.js'
 import passwordValidator from '../../utils/passwordValidator.js';
 import phoneNumReorder from '../../utils/phoneNumReorder.js';
 import emailValidator from '../../utils/emailValidator.js';
