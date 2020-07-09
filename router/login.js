@@ -1,6 +1,7 @@
 const Datastore = require('nedb-promises');
 let userInfo = Datastore.create('./userInfo.db')
 let sessionDB = Datastore.create('./session.db');
+const encryption = require('../api/register/encryption.js');
 
 const {insertSessionID} = require('../api/register/database.js');
 
@@ -17,7 +18,8 @@ async function loginCallback(req, res){
         mes : ERR_ID,
     })
 
-    if(user[0].password !== password) return res.status(400).json({
+    const encryptedPassword = encryption(password);
+    if(user[0].password !== encryptedPassword) return res.status(400).json({
         mes : ERR_PASSWORD,
     })
 
