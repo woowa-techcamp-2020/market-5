@@ -1,6 +1,20 @@
 doctype html
 head
-  title main
-h1 메인페이지
+  title 메인
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  link(href='/css/normalize.css', rel="stylesheet")
+  link(href='/css/main.css', rel="stylesheet")
 
-script(src="/javascripts/main.js", type="text/javascript")
+div.main-box
+  h4 사장님, 로그인해주세요!
+  input(type="button", value="배민사장님광장 로그인", href="/login", onclick="location.href='/login'")
+  div.link-box 
+    a 아이디/비번 찾기
+    span |
+    a(href="/register") 회원가입
+     
+
+  
+
+//- script(src="/javascripts/main.js", type="text/javascript")
