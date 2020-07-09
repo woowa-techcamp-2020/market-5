@@ -1,5 +1,6 @@
 import {
     checkId,
+    hasId,
     checkEmail,
     checkEmailDomain,
     checkPassword,
@@ -18,22 +19,24 @@ import {
 
 // 아이디
 const inputId = document.getElementsByName('id')[0];
+const certificationIdButton = document.querySelector('#idDuplicateCheck');
 // 패스워드
 const inputPassword = document.getElementById('password');
-const inputPasswordSecond = document.getElementById('passwordSecond')
-    // 휴대폰 번호
-const inputPhoneNum = document.getElementById('phone')
-    // 이름
+const inputPasswordSecond = document.getElementById('passwordSecond');
+// 휴대폰 번호
+const inputPhoneNum = document.getElementById('phone');
+// 이름
 const inputName = document.getElementById('name');
 // 이메일
 const inputEmail = document.querySelector('.email-first');
 const inputEmailDomain = document.querySelector('.email-second');
-const selectEmail = document.querySelector('.email')
-    // 인증
+const selectEmail = document.querySelector('.email');
+// 인증
 const certificationButton = document.querySelector('#certification')
 const verficationButton = document.querySelector('#verficationButton');
 
 inputId.addEventListener('keyup', checkId);
+certificationIdButton.addEventListener('click', hasId);
 
 inputPassword.addEventListener('keyup', checkPassword);
 inputPasswordSecond.addEventListener('keyup', comparePassword);
