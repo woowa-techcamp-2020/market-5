@@ -30,8 +30,7 @@ async function registerCallback(req, res) {
         return res.status(200).json({
             mes: SUCC_MES,
         })
-    } 
-    catch {
+    } catch {
         return res.status(500).json({
             mes: ERRO_SERVER,
         })

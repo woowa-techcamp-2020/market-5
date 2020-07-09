@@ -16,7 +16,6 @@ function submitRegister(e) {
     e.preventDefault();
 
     if (!checkId()) return;
-    if (!hasId()) return;
     if (!comparePassword()) return;
     if (!checkEmail()) return;
     if (!checkEmailDomain()) return;
@@ -27,43 +26,43 @@ function submitRegister(e) {
 
     const formData = makeFormData();
     postRegister(formData)
-    .then(res => {
-        return res.json()
-    })
-    .then(res => {
-        alert(res.mes);
-    })
-    .then(() => {
-        const id = formData.get('id');
-        const password = formData.get('password');
-        return postLogin(id, password);
-    })
-    .then(res => {
-        return res.json();
-    })
-    .then(res => {
-        alert(res.mes);
-    })
-    .catch(err => {
-        console.log(err);
-    })  
+        .then(res => {
+            return res.json()
+        })
+        .then(res => {
+            alert(res.mes);
+        })
+        .then(() => {
+            const id = formData.get('id');
+            const password = formData.get('password');
+            return postLogin(id, password);
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            alert(res.mes);
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
-function postLogin(id, password){
+function postLogin(id, password) {
     const url = 'http://localhost:8000/login';
     return fetch(url, {
-        method : 'POST',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body : JSON.stringify({
+        body: JSON.stringify({
             id,
             password,
         })
     })
 }
 
-function postRegister(formData){
+function postRegister(formData) {
     const url = 'http://localhost:8000/register';
     return fetch(url, {
         method: 'POST',
@@ -72,7 +71,7 @@ function postRegister(formData){
 }
 
 function postData(formData) {
-    
+
 }
 
 function makeFormData() {
