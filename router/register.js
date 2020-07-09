@@ -1,8 +1,7 @@
-var pbkdf2 = require('pbkdf2')
-
 const { checkId } = require('../api/register/doubleCheck.js')
 const formCheck = require('../api/register/formCheck.js');
 const { insertUserInfo } = require('../api/register/database.js');
+const encryption = require('../api/register/encryption.js');
 
 async function registerCallback(req, res) {
     const ERRO_MES = '다시 입력해주세요';
@@ -15,28 +14,37 @@ async function registerCallback(req, res) {
     const doublCheck = !await checkId(userInfo.id);
 
     const finalCheck = checkResult && doublCheck;
-    console.log(checkResult, doublCheck);
+
     if (!finalCheck) {
         return res.status(400).json({
             mes: ERRO_MES,
         })
     }
 
-    try {
-        //로그인할때 똑같이 사용해야 함
-        var derivedKey = pbkdf2.pbkdf2Sync(userInfo.password, 'parknoh', 1, 32, 'sha512').toString("hex");
-        userInfo.password = derivedKey
+    userInfo.password = encryption(userInfo.password)
 
-        const result = await insertUserInfo(userInfo);
-        console.log('result :', result);
-        return res.status(200).json({
-            mes: SUCC_MES,
-        })
-    } catch {
-        return res.status(500).json({
-            mes: ERRO_SERVER,
-        })
-    }
+    const result = await insertUserInfo(userInfo);
+    console.log('result :', result);
+    return res.status(200).json({
+        mes: SUCC_MES,
+    })
+
+    // try {
+    //     //로그인할때 똑같이 사용해야 함
+    //     let derivedKey = pbkdf2.pbkdf2Sync(userInfo.password, 'parknoh', 1, 32, 'sha512').toString("hex");
+    //     userInfo.password = encryption(userInfo.password)
+
+    //     const result = await insertUserInfo(userInfo);
+    //     console.log('result :', result);
+    //     return res.status(200).json({
+    //         mes: SUCC_MES,
+    //     })
+    // } 
+    // catch {
+    //     return res.status(500).json({
+    //         mes: ERRO_SERVER,
+    //     })
+    // }
 }
 
 module.exports = { registerCallback }
