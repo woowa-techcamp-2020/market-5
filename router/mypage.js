@@ -1,14 +1,22 @@
 const Datastore = require('nedb-promises');
 const { findSessionID } = require('../api/register/database.js');
-const {cookieParser} = require('./middleware/authenticate.js');
+const { cookieParser } = require('./middleware/authenticate.js');
 let userInfo = Datastore.create('./userInfo.db');
 
-async function mypageCallback(req, res){
+async function mypageCallback(req, res) {
     const session = req.session;
     const userId = session.id;
     const user = await userInfo.findOne({ id: userId });
-    console.log('render');
-    res.render('mypage', { name: user.username, id: user.id, email: user.email, phone: user.phoneNum });
+
+    res.render('mypage', { name: user.username, id: user.id, email: user.email, phone: user.phoneNum, message: user.username + "님, 환영합니다" });
 }
 
-module.exports = mypageCallback
+async function registerSuccessCallback(req, res) {
+    const session = req.session;
+    const userId = session.id;
+    const user = await userInfo.findOne({ id: userId });
+
+    res.render('mypage', { name: user.username, id: user.id, email: user.email, phone: user.phoneNum, message: "회원이 되셨습니다" });
+}
+
+module.exports = { mypageCallback, registerSuccessCallback }

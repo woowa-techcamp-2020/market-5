@@ -30,10 +30,27 @@ function submitRegister(e) {
 
     const formData = makeFormData();
     postRegister(formData)
-    .then(res => {
-        alert(res.mes);
-        location.href="/login";
-    })
+        .then(res => {
+            return res.json()
+        })
+        .then(res => {
+            alert(res.mes);
+        })
+        .then(() => {
+            const id = formData.get('id');
+            const password = formData.get('password');
+            return postLogin(id, password);
+        })
+        .then(res => {
+            return res.json();
+        })
+        .then(res => {
+            if (res.msg) alert(res.mes);
+            else location.href = "/register/success"
+        })
+        .catch(err => {
+            console.log(err);
+        })
 }
 
 function postLogin(id, password) {
@@ -46,6 +63,7 @@ function postLogin(id, password) {
         body: JSON.stringify({
             id,
             password,
+            register: true
         })
     })
 }
