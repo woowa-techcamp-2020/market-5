@@ -1,8 +1,13 @@
+const Datastore = require('nedb-promises')
+let userDB = Datastore.create('./userInfo.db')
+let sessionDB = Datastore.create('./session.db');
+
 function insertUserInfo(userInfo){
-    const Datastore = require('nedb-promises')
-    let db = Datastore.create('./userInfo.db')
-    
-    return db.insert(userInfo);
+    return userDB.insert(userInfo);
 }
 
-module.exports = {insertUserInfo}
+function insertSessionID(id, sessionID){
+    return sessionDB.insert({id, sessionID})
+}
+
+module.exports = {insertUserInfo, insertSessionID}

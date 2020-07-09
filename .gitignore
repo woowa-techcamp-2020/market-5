@@ -109,4 +109,5 @@ dist
 .vscode-test
 
 userInfo.db
+session.db
 

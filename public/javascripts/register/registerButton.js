@@ -44,7 +44,7 @@ function submitRegister(e){
     })
     .catch(err => {
         console.log(err);
-    })
+    })  
 }
 
 function postLogin(id, password){
