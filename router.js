@@ -1,6 +1,7 @@
 const express = require('express');
 const { checkId } = require('./api/register/doubleCheck.js')
 const formCheck = require('./api/register/formCheck.js');
+const { insertUserInfo } = require('./api/register/database.js');
 
 const router = express.Router();
 router.get('/', (req, res) => {
@@ -10,17 +11,26 @@ router.get('/register', (req, res) => {
     res.render('./Register/register'); // (4)
 });
 
-router.post('/register', (req, res) => {
+router.post('/register', async (req, res) => {
     const ERRO_MES = '다시 입력해주세요';
     const userInfo = req.body;
+    
     const checkResult = formCheck(userInfo);
+    const doublCheck = await checkId(userInfo.id);
 
-    if(!checkResult){
-        res.status(400).send(ERRO_MES);
-    }else{
-        res.sendStatus(200)
+    const finalCheck = checkResult && doublCheck;
+
+    if(!finalCheck){
+        return res.status(400).send(ERRO_MES);
     }
-    // res.render('./Register/register'); // (4)
+
+    try{
+        const result = await insertUserInfo(userInfo);
+        console.log('result :', result);
+        res.sendStatus(200);
+    }catch{
+        res.sendStatus(500);
+    }   
 });
 
 router.get('/registerSuccess', (req, res) => {
