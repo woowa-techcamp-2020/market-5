@@ -1,10 +1,12 @@
+const Datastore = require('nedb-promises');
 const express = require('express');
+let userInfo = Datastore.create('./userInfo.db');
 
-const {deleteSessionID} = require('../api/register/database.js');
+const { findSessionID, deleteSessionID } = require('../api/register/database.js');
 const { registerCallback } = require('./register.js');
 const doubleCheckId = require('./doubleCheckId.js');
 const loginCallback = require('./login.js');
-const {authenticate, cookieParser} = require('./middleware/authenticate.js');
+const { authenticate, cookieParser } = require('./middleware/authenticate.js');
 const deleteCookie = require('./cookie.js');
 
 const router = express.Router();
@@ -18,8 +20,17 @@ router.get('/register', (req, res) => {
     res.render('./Register/register'); // (4)
 });
 
-router.get('/mypage', (req, res) => {
-    res.render('mypage'); // (4)
+router.get('/mypage', async(req, res) => {
+    const sessionId = req.cookies.sessionID;
+    // 로그인 되었을경우
+    if (sessionId) {
+        const userId = (await findSessionID(sessionId)).id;
+        const user = await userInfo.findOne({ id: userId })
+        res.render('mypage', { name: user.username, id: user.id, email: user.email, phone: user.phoneNum });
+    } else {
+        //로그인을 하지 않았거나 세션이 만료된 경우
+        res.redirect('/login')
+    }
 });
 
 router.get('/login', (req, res) => {
