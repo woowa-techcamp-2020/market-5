@@ -6,6 +6,7 @@ function authenticate(req, res, next){
     console.log(parsedCookie);
 
     const sessionID = parsedCookie.sessionID;
+    if(!sessionID) return res.render('login');
     const id = parsedCookie.id;
 
     findSessionID(sessionID)
