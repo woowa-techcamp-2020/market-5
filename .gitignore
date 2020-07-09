@@ -110,4 +110,5 @@ dist
 
 userInfo.db
 session.db
+encryption.js
 
