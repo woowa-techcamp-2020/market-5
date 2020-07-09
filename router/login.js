@@ -23,17 +23,14 @@ async function loginCallback(req, res){
         mes : ERR_PASSWORD,
     })
 
-    const sessionID = String(encryption(id));
-    console.log(sessionID);
+    const randomNum = String(Math.floor(Math.random()*1000000));
+    const sessionID = String(encryption(randomNum));
     const session = await insertSessionID(id, sessionID);
 
     return res
-            .status(200)
-            .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly:true, secure:false})
             .cookie('id', id, {httpOnly:true, secure:false})
-            .json({
-                mes : '로그인 성공',
-            })
+            .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly:true, secure:false})
+            .render('mypage');
 }
 
 module.exports = loginCallback;
