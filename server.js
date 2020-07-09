@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const app = express();
-const route = require('./router.js');
+const route = require('./router/router.js');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json())

@@ -180,11 +180,13 @@ function checkName() {
         errorName.style.color = "red"
         inputName.style.borderColor = "red"
         errorName.style.display = "block"
+        return false;
     } else {
         errorName.style.display = "block"
         errorName.innerText = '입력하신 이름으로 사용이 가능합니다'
         errorName.style.color = "gray"
         inputName.style.borderColor = "black"
+        return true;
     }
 }
 

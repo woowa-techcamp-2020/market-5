@@ -1,4 +1,4 @@
-const nameReg = /[0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/;
+const nameReg = /[0-9\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]$/;
 
 function checkChar(id) {
     //const inputName = document.querySelector('body > div > form > div > div > input:nth-child(7)').value
@@ -16,4 +16,4 @@ function nameValidator(name){
     return true;
 }
 
-export default nameValidator;
+module.exports = nameValidator;
