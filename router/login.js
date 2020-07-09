@@ -21,7 +21,7 @@ async function loginCallback(req, res) {
     const encryptedPassword = encryption(password);
     if (user[0].password !== encryptedPassword) return res.status(400).json({
         mes: ERR_PASSWORD,
-    })
+    }) 
 
     const randomNum = String(Math.floor(Math.random() * 1000000));
     const sessionID = String(encryption(randomNum));
@@ -30,7 +30,7 @@ async function loginCallback(req, res) {
     return res
         .cookie('id', id, { httpOnly: true, secure: false })
         .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
-        .render('mypage');
+        .redirect('mypage');
 }
 
 module.exports = loginCallback;

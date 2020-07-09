@@ -27,7 +27,7 @@ router.get('/login', authenticate, loginChecked);
 
 router.post('/register', registerCallback);
 router.post('/register/check/id', doubleCheckId);
-router.post('/login', authenticate, loginCallback);
+router.post('/login', loginCallback);
 
 // delete
 router.delete('/cookie', deleteCookie)
