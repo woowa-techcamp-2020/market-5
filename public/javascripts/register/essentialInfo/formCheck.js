@@ -55,7 +55,14 @@ async function hasId() {
     const errorId = document.querySelector('.errorId')
         // Example POST method implementation:
     const result = (await postData('http://localhost:8000/register/check/id', { id: id })).hasId
-    if (result) {
+    if (!idValidator(id)) {
+        errorId.textContent = '입력하신 아이디로 사용이 불가합니다'
+        errorId.style.color = "red";
+        inputId.style.borderColor = "red";
+        errorId.style.display = "block";
+        inputId.focus();
+        return false;
+    } else if (result) {
         errorId.textContent = '이미 사용중인 아이디입니다'
         errorId.style.color = "red";
         inputId.style.borderColor = "red";

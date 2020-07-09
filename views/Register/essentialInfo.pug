@@ -6,7 +6,7 @@ html
                 .NanumSquareRound
                     p(style="color:black; font-size:20px; text-align: center;") 필수 정보를 입력해주세요.
                     .id-box
-                        input(id="username" name="id", type="text" placeholder="아이디* (4~20자)")
+                        input(id="username" name="id", type="text" placeholder="아이디* (영소문자+숫자, 특수문자는 -_ 만 허용,4~20자)")
                         button(type="button" id="idDuplicateCheck") 중복체크
                     p.errorId(style="display:none;")
                     input(id="password" name="password", type="password" placeholder="비밀번호* (영문+숫자, 8~20자)")
@@ -25,7 +25,7 @@ html
                         option(value="nate.com") nate.com
                         option(value="gmail.com") gmail.com
                         option(value="self") 직접입력
-                    input(type="text" placeholder="이름*" name="username" id="name")
+                    input(type="text" placeholder="이름* (특수문자,숫자 불가)" name="username" id="name")
                     p.errorName(style="display:none;")
                     .phone-box
                         input(id="phone", type="text" name="phoneNum" placeholder="휴대폰*")
