@@ -1,5 +1,15 @@
 doctype html
-head
-  title registerSuccess
-body
-    include userInfoCard.pug
+html
+    head(lang='ko')
+        meta(charset='UTF-8')
+        link(href='/css/mypage.css', rel="stylesheet")
+
+    body
+        .BMHANNAAir
+          p 여기에들어감
+          a(href='/') 메인으로 ➔
+          .big-box
+              p 이름 #{name}
+              p 아이디 #{id}
+              p 이메일 #{email}
+              p 휴대폰 #{phone}

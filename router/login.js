@@ -30,7 +30,7 @@ async function loginCallback(req, res) {
     return res
         .cookie('id', id, { httpOnly: true, secure: false })
         .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
-        .render('mypage');
+        .redirect('mypage');
 }
 
 module.exports = loginCallback;
