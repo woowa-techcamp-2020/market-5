@@ -4,6 +4,13 @@ import phoneNumReorder from '../../utils/phoneNumReorder.js';
 import emailValidator from '../../utils/emailValidator.js';
 import nameValidator from '../../utils/nameValidator.js';
 
+var isDuplicateCheck = false
+
+function onKeyUpIdInput() {
+    isDuplicateCheck = false
+    checkId()
+}
+
 function checkId() {
     const inputId = document.getElementsByName('id')[0];
     const id = inputId.value;
@@ -13,7 +20,7 @@ function checkId() {
         errorId.style.color = "red";
         inputId.style.borderColor = "red";
         errorId.style.display = "block";
-        return true;
+        return isDuplicateCheck;
     } else {
         errorId.textContent = '입력하신 아이디로 사용이 불가합니다'
         errorId.style.color = "red";
@@ -48,7 +55,14 @@ async function hasId() {
     const errorId = document.querySelector('.errorId')
         // Example POST method implementation:
     const result = (await postData('http://localhost:8000/register/check/id', { id: id })).hasId
-    if (result) {
+    if (!idValidator(id)) {
+        errorId.textContent = '입력하신 아이디로 사용이 불가합니다'
+        errorId.style.color = "red";
+        inputId.style.borderColor = "red";
+        errorId.style.display = "block";
+        inputId.focus();
+        return false;
+    } else if (result) {
         errorId.textContent = '이미 사용중인 아이디입니다'
         errorId.style.color = "red";
         inputId.style.borderColor = "red";
@@ -59,6 +73,7 @@ async function hasId() {
         errorId.style.color = "black";
         inputId.style.borderColor = "black";
         errorId.style.display = "block";
+        isDuplicateCheck = true
         inputId.focus();
         return false;
     }
@@ -190,6 +205,7 @@ function checkName() {
 }
 
 export {
+    onKeyUpIdInput,
     checkId,
     checkEmail,
     checkEmailDomain,

@@ -4,9 +4,9 @@
 }
 
 .big-box {
-    display: block;
+    padding: 50px;
     margin: 0 auto;
-    max-width: 750px;
+    max-width: 550px;
     width: 90%;
 }
 
@@ -23,8 +23,8 @@ button {
     width: 100%;
     max-width: 300px;
     margin: 0 auto;
-    background-color: blue;
-    box-sizing: border-box;
+    background-color: #2ac1bc;
+    border: none;
     padding-top: 2px;
     display: block;
     color: white;
