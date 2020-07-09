@@ -9,6 +9,27 @@
         font-family: 'NanumSquareRound';
     }
     
+    .id-box {
+        display: flex;
+    }
+    
+    #username {
+        margin: 0px;
+        width: 68%;
+        height: 50px;
+        padding-right: 10px;
+    }
+    
+    #idDuplicateCheck {
+        width: 30%;
+        height: 50px;
+        margin-left: 40px;
+        border: 0.5px solid lightgray;
+        font-weight: bold;
+        font-size: 18px;
+        background-color: white;
+    }
+    
     .email-box {
         display: flex;
         justify-content: space-between;
@@ -110,7 +131,7 @@
             font-size: 12px;
         }
     }
-
-    input:focus{
-        outline:1px solid red;
+    
+    input:focus {
+        outline: 1px solid red;
     }

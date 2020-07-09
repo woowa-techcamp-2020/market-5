@@ -9,15 +9,56 @@ function checkId() {
     const id = inputId.value;
     const errorId = document.querySelector('.errorId')
     if (idValidator(id)) {
-        errorId.textContent = '입력하신 아이디로 사용이 가능합니다'
-        errorId.style.color = "gray";
-        inputId.style.borderColor = "black";
+        errorId.textContent = '중복체크를 해주세요'
+        errorId.style.color = "red";
+        inputId.style.borderColor = "red";
         errorId.style.display = "block";
         return true;
     } else {
         errorId.textContent = '입력하신 아이디로 사용이 불가합니다'
         errorId.style.color = "red";
         inputId.style.borderColor = "red";
+        errorId.style.display = "block";
+        inputId.focus();
+        return false;
+    }
+}
+
+function postData(url = '', data = {}) {
+    // Default options are marked with *
+    return fetch(url, {
+            method: 'POST', // *GET, POST, PUT, DELETE, etc.
+            mode: 'cors', // no-cors, cors, *same-origin
+            cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+            credentials: 'same-origin', // include, *same-origin, omit
+            headers: {
+                'Content-Type': 'application/json',
+                // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: 'follow', // manual, *follow, error
+            referrer: 'no-referrer', // no-referrer, *client
+            body: JSON.stringify(data), // body data type must match "Content-Type" header
+        })
+        .then(response => response.json()); // parses JSON response into native JavaScript objects 
+}
+
+async function hasId() {
+
+    const inputId = document.getElementsByName('id')[0];
+    const id = inputId.value;
+    const errorId = document.querySelector('.errorId')
+        // Example POST method implementation:
+    const result = (await postData('http://localhost:8000/register/check/id', { id: id })).hasId
+    if (result) {
+        errorId.textContent = '이미 사용중인 아이디입니다'
+        errorId.style.color = "red";
+        inputId.style.borderColor = "red";
+        errorId.style.display = "block";
+    } else {
+
+        errorId.textContent = '입력하신 아이디로 사용이 가능합니다'
+        errorId.style.color = "black";
+        inputId.style.borderColor = "black";
         errorId.style.display = "block";
         inputId.focus();
         return false;
@@ -160,4 +201,5 @@ export {
     checkPhoneNum,
     reorderPhoneNum,
     checkName,
+    hasId,
 }
