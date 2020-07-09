@@ -43,7 +43,6 @@ function postData(url = '', data = {}) {
 }
 
 async function hasId() {
-
     const inputId = document.getElementsByName('id')[0];
     const id = inputId.value;
     const errorId = document.querySelector('.errorId')
@@ -54,8 +53,8 @@ async function hasId() {
         errorId.style.color = "red";
         inputId.style.borderColor = "red";
         errorId.style.display = "block";
+        return true;
     } else {
-
         errorId.textContent = '입력하신 아이디로 사용이 가능합니다'
         errorId.style.color = "black";
         inputId.style.borderColor = "black";
