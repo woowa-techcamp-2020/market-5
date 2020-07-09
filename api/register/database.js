@@ -10,4 +10,13 @@ function insertSessionID(id, sessionID){
     return sessionDB.insert({id, sessionID})
 }
 
-module.exports = {insertUserInfo, insertSessionID}
+function findSessionID(sessionID){
+    console.log('sessionID:',sessionID)
+    return sessionDB.findOne({sessionID : sessionID})
+}
+
+function deleteSessionID(sessionID){
+    return sessionDB.remove({sessionID : sessionID});
+}
+
+module.exports = {insertUserInfo, insertSessionID, findSessionID, deleteSessionID}
