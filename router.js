@@ -1,5 +1,6 @@
 const express = require('express');
 const { checkId } = require('./api/register/doubleCheck.js')
+const formCheck = require('./api/register/formCheck.js');
 
 const router = express.Router();
 router.get('/', (req, res) => {
@@ -10,8 +11,16 @@ router.get('/register', (req, res) => {
 });
 
 router.post('/register', (req, res) => {
-    console.log(req.body);
-    res.render('./Register/register'); // (4)
+    const ERRO_MES = '다시 입력해주세요';
+    const userInfo = req.body;
+    const checkResult = formCheck(userInfo);
+
+    if(!checkResult){
+        res.status(400).send(ERRO_MES);
+    }else{
+        res.sendStatus(200)
+    }
+    // res.render('./Register/register'); // (4)
 });
 
 router.get('/registerSuccess', (req, res) => {
