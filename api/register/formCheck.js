@@ -4,7 +4,6 @@ const emailValidator = require('./utils/emailValidator.js')
 const nameValidator = require('./utils/nameValidator.js')
 
 function formCheck(userInfo){
-    let check=false;
 
     if(!idValidator(userInfo.id)) return false;
     if(!passwordValidator(userInfo.password)) return false;

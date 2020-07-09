@@ -26,9 +26,11 @@ function submitRegister(e){
     console.log('왜 안될까');
     const formData = makeFormData();
     postData(formData)
-    .then(data => {
-        console.log(data);
-        // console.log('전송 성공');
+    .then(res => {
+        return res.json()
+    })
+    .then(res => {
+        alert(res.mes);
     })
 }
 
