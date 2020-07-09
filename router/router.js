@@ -18,17 +18,17 @@ router.get('/register', (req, res) => {
     res.render('./Register/register'); // (4)
 });
 
-router.get('/registerSuccess', (req, res) => {
-    res.render('registerSuccess'); // (4)
+router.get('/mypage', (req, res) => {
+    res.render('mypage'); // (4)
 });
 
 router.get('/login', (req, res) => {
     res.render('login'); // (4)
 });
 
-router.get('/main', authenticate, (req, res) => {
-    res.render('main');
-})
+// router.get('/main', authenticate, (req, res) => {
+//     res.render('main');
+// })
 
 // post
 

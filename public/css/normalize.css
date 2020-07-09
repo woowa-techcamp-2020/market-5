@@ -16,9 +16,11 @@
   }
   button{
     outline: none;
+    cursor: pointer;
   }
   input[type='button']{
     outline:none;
+    cursor: pointer;
   }
   
   /* Sections
