@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'BMHANNAAir';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.0/BMHANNAAir.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.BMHANNAAir {
+    font-family: 'BMHANNAAir', fantasy;
+    max-width: 300px;
+    width: 80%;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.big-box {
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border: 0.5px lightgray solid;
+    max-width: 300px;
+    width: 80%;
+}
+
+.msg {
+    margin-top: 0px;
+    font-size: 30px;
+}
