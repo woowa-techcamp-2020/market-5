@@ -23,7 +23,8 @@ async function loginCallback(req, res){
         mes : ERR_PASSWORD,
     })
 
-    const sessionID = encryption(id);
+    const sessionID = String(encryption(id));
+    console.log(sessionID);
     const session = await insertSessionID(id, sessionID);
 
     return res

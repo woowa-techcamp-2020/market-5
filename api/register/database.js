@@ -11,8 +11,8 @@ function insertSessionID(id, sessionID){
 }
 
 function findSessionID(sessionID){
-    console.log('sessionID:',sessionID)
-    return sessionDB.findOne({sessionID : sessionID})
+    console.log('sessionID: ', sessionID)
+    return sessionDB.findOne({'sessionID' : sessionID.trim()})
 }
 
 function deleteSessionID(sessionID){

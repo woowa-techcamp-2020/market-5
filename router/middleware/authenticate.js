@@ -10,7 +10,7 @@ function authenticate(req, res, next){
 
     findSessionID(sessionID)
     .then(user => {
-        console.log(user);
+        console.log('user:', user);
         if(!user) return res.render('login');
         return next();
     })
