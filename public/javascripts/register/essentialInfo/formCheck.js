@@ -80,7 +80,6 @@ function checkEmail() {
 function checkEmailDomain() {
     const inputEmail = document.querySelector('.email-second')
     const email = inputEmail.value
-    console.log(email);
     const errorEmail = document.querySelector('.errorEmail')
     if (emailValidator(email)) {
         inputEmail.style.borderColor = 'black';

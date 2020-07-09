@@ -59,6 +59,7 @@ function addEmail() {
         if (email == 'self') {
             inputEmailDomain.value = "";
             inputEmailDomain.disabled = false;
+            document.querySelector('#email-second').focus()
         } else {
             document.querySelector('.email-second').style.borderColor = 'black';
             inputEmailDomain.value = email;
