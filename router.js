@@ -1,5 +1,5 @@
 const express = require('express');
-const { checkId } = require('./doubleCheck.js')
+const { checkId } = require('./api/register/doubleCheck.js')
 
 const router = express.Router();
 router.get('/', (req, res) => {
