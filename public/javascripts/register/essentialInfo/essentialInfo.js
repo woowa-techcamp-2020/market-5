@@ -1,4 +1,5 @@
 import {
+    onKeyUpIdInput,
     checkId,
     hasId,
     checkEmail,
@@ -35,7 +36,7 @@ const selectEmail = document.querySelector('.email');
 const certificationButton = document.querySelector('#certification')
 const verficationButton = document.querySelector('#verficationButton');
 
-inputId.addEventListener('keyup', checkId);
+inputId.addEventListener('keyup', onKeyUpIdInput);
 certificationIdButton.addEventListener('click', hasId);
 
 inputPassword.addEventListener('keyup', checkPassword);
