@@ -5,7 +5,7 @@ const doubleCheckId = require('./doubleCheckId.js');
 const loginCallback = require('./login.js');
 const { authenticate, cookieParser } = require('./middleware/authenticate.js');
 const deleteCookie = require('./cookie.js');
-const mypageCallback = require('./mypage.js');
+const { mypageCallback, registerSuccessCallback } = require('./mypage.js');
 const loginChecked = require('./loginChecked.js');
 
 const router = express.Router();
@@ -19,6 +19,7 @@ router.get('/register', (req, res) => {
     res.render('./Register/register'); // (4)
 });
 
+router.get('/register/success', authenticate, registerSuccessCallback);
 router.get('/mypage', authenticate, mypageCallback);
 
 router.get('/login', authenticate, loginChecked);

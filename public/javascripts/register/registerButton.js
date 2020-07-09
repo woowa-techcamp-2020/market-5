@@ -41,7 +41,8 @@ function submitRegister(e) {
             return res.json();
         })
         .then(res => {
-            alert(res.mes);
+            if (res.msg) alert(res.mes);
+            else location.href = "/register/success"
         })
         .catch(err => {
             console.log(err);
@@ -58,6 +59,7 @@ function postLogin(id, password) {
         body: JSON.stringify({
             id,
             password,
+            register: true
         })
     })
 }
