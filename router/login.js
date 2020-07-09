@@ -23,14 +23,14 @@ async function loginCallback(req, res) {
         mes: ERR_PASSWORD,
     })
 
-    const randomNum = String(Math.floor(Math.random()*1000000));
+    const randomNum = String(Math.floor(Math.random() * 1000000));
     const sessionID = String(encryption(randomNum));
     const session = await insertSessionID(id, sessionID);
 
     return res
-            .cookie('id', id, {httpOnly:true, secure:false})
-            .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly:true, secure:false})
-            .render('mypage');
+        .cookie('id', id, { httpOnly: true, secure: false })
+        .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
+        .render('mypage');
 }
 
 module.exports = loginCallback;
