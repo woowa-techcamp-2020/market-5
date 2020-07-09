@@ -6,10 +6,10 @@ html
 
     body
         .NanumSquareRound
-        p 메인으로 ➔
+        a(href='/') 메인으로 ➔
         .big-box
-            p 이름
-            p 아이디
-            p 이메일
-            p 휴대폰
+            p 이름 #{name}
+            p 아이디 #{id}
+            p 이메일 #{email}
+            p 휴대폰 #{phone}
     script(src="/javascripts/register/essentialInfo/essentialInfo.js", type="module")
