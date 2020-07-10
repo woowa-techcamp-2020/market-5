@@ -6,16 +6,15 @@ const { insertSessionID } = require('../api/register/database.js');
 const { render } = require('pug');
 
 let sessionDB = Datastore.create('./session.db');
-let userInfo = Datastore.create('./userInfo.db');
 
 
 function checkLogined(req, res, next){
     const cookies = req.headers.cookie;
     const parsedCookie = cookieParser(cookies);
-
+    
     const sessionID = parsedCookie.sessionID;
     if(!sessionID) return next();
-
+    
     findSessionID(sessionID)
     .then(user => {
         if(user) return res.render('loginAlready');
@@ -27,6 +26,7 @@ function checkLogined(req, res, next){
 }
 
 async function loginCallback(req, res) {
+    let userInfo = Datastore.create('./userInfo.db');
     console.log('body:', req.body);
 
     const ERR_ID = "아이디가 맞지 않습니다."
