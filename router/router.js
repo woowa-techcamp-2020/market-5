@@ -4,7 +4,6 @@ const { registerCallback } = require('./register.js');
 const doubleCheckId = require('./doubleCheckId.js');
 const {loginCallback, checkLogined} = require('./login.js');
 const {authenticate, cookieParser} = require('./middleware/authenticate.js');
-const loginCallback = require('./login.js');
 const deleteCookie = require('./cookie.js');
 const { mypageCallback, registerSuccessCallback } = require('./mypage.js');
 const loginChecked = require('./loginChecked.js');
