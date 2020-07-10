@@ -1,9 +1,30 @@
 const Datastore = require('nedb-promises');
-let userInfo = Datastore.create('./userInfo.db')
-let sessionDB = Datastore.create('./session.db');
 const encryption = require('../api/register/encryption.js');
-
+const {findSessionID} =  require('../api/register/database.js');
+const { cookieParser } = require('./middleware/authenticate.js');
 const { insertSessionID } = require('../api/register/database.js');
+const { render } = require('pug');
+
+let sessionDB = Datastore.create('./session.db');
+let userInfo = Datastore.create('./userInfo.db');
+
+
+function checkLogined(req, res, next){
+    const cookies = req.headers.cookie;
+    const parsedCookie = cookieParser(cookies);
+
+    const sessionID = parsedCookie.sessionID;
+    if(!sessionID) return next();
+
+    findSessionID(sessionID)
+    .then(user => {
+        if(user) return res.render('loginAlready');
+        return next();
+    })
+    .catch(err => {
+        return next();
+    })
+}
 
 async function loginCallback(req, res) {
     console.log('body:', req.body);
@@ -14,6 +35,7 @@ async function loginCallback(req, res) {
 
     const id = req.body.id;
     const password = req.body.password;
+    const idSave = req.body.idSave;
 
     await userInfo.load()
     const user = await userInfo.find({ id: id })
@@ -32,13 +54,15 @@ async function loginCallback(req, res) {
     const randomNum = String(Math.floor(Math.random() * 1000000));
     const sessionID = String(encryption(randomNum));
     const session = await insertSessionID(id, sessionID);
+    
+    if(idSave) res.cookie('id', id, { expires: new Date(Date.now() + 900000), httpOnly: false, secure: false });
+    else res.cookie('id', '', { expires: new Date(Date.now() + 900000), httpOnly: false, secure: false });
 
-    res.cookie('id', id, { httpOnly: true, secure: false })
-        .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
+    res.cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
 
     if (req.body.register) {
         res.status(200).json({ success: true })
-    } else res.redirect('/mypage')
+    } else res.status(200).redirect('/mypage');
 }
 
-module.exports = loginCallback;
+module.exports = {loginCallback, checkLogined};

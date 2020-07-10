@@ -35,8 +35,10 @@ function submitRegister(e) {
         })
         .then(res => {
             alert(res.mes);
-        })
-        .then(() => {
+            if(res.status === 400) {
+                alert('다시 입력해주세요');
+                location.href = '/register';
+            }
             const id = formData.get('id');
             const password = formData.get('password');
             return postLogin(id, password);
@@ -46,10 +48,11 @@ function submitRegister(e) {
         })
         .then(res => {
             if (res.msg) alert(res.mes);
+            if(res.status === 400) location.href="/login";
             else location.href = "/register/success"
         })
         .catch(err => {
-            console.log(err);
+            location.href = "/login"
         })
 }
 
@@ -72,6 +75,9 @@ function postRegister(formData) {
     const url = '/register';
     return fetch(url, {
         method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
         body: new URLSearchParams(formData),
     })
 }
