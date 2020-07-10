@@ -42,14 +42,10 @@ async function loginCallback(req, res) {
 
     console.log(user)
 
-    if (!user.length) return res.status(400).json({
-        mes: ERR_ID,
-    })
+    if (!user.length) return res.status(400).render('login', {errorID : ERR_ID});
 
     const encryptedPassword = encryption(password);
-    if (user[0].password !== encryptedPassword) return res.status(400).json({
-        mes: ERR_PASSWORD,
-    })
+    if (user[0].password !== encryptedPassword) return res.status(400).render('login', {errorPass : ERR_PASSWORD})
 
     const randomNum = String(Math.floor(Math.random() * 1000000));
     const sessionID = String(encryption(randomNum));
