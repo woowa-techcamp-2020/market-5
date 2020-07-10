@@ -35,6 +35,7 @@ async function loginCallback(req, res) {
 
     const id = req.body.id;
     const password = req.body.password;
+    const idSave = req.body.idSave;
 
     await userInfo.load()
     const user = await userInfo.find({ id: id })
@@ -53,13 +54,15 @@ async function loginCallback(req, res) {
     const randomNum = String(Math.floor(Math.random() * 1000000));
     const sessionID = String(encryption(randomNum));
     const session = await insertSessionID(id, sessionID);
+    
+    if(idSave) res.cookie('id', id, { expires: new Date(Date.now() + 900000), httpOnly: false, secure: false });
+    else res.cookie('id', '', { expires: new Date(Date.now() + 900000), httpOnly: false, secure: false });
 
-    res.cookie('id', id, { httpOnly: true, secure: false })
-        .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
+    res.cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
 
     if (req.body.register) {
         res.status(200).json({ success: true })
-    } else res.redirect('/mypage')
+    } else res.status(200).redirect('/mypage');
 }
 
 module.exports = {loginCallback, checkLogined};
