@@ -36,7 +36,7 @@ const selectEmail = document.querySelector('.email');
 const certificationButton = document.querySelector('#certification')
 const verficationButton = document.querySelector('#verficationButton');
 
-inputId.addEventListener('keyup', onKeyUpIdInput);
+inputId.addEventListener('keypress', onKeyUpIdInput);
 certificationIdButton.addEventListener('click', hasId);
 
 inputPassword.addEventListener('keyup', checkPassword);
