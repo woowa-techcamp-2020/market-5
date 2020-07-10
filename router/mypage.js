@@ -1,11 +1,11 @@
 const Datastore = require('nedb-promises');
 const { findSessionID } = require('../api/register/database.js');
 const { cookieParser } = require('./middleware/authenticate.js');
-let userInfo = Datastore.create('./userInfo.db');
 
 async function mypageCallback(req, res) {
+    let userInfo = Datastore.create('./userInfo.db');
     const session = req.session;
-    if(!req.session) res.redirect('/login')
+    if (!req.session) res.redirect('/login')
     const userId = session.id;
     const user = await userInfo.findOne({ id: userId });
 
@@ -13,8 +13,13 @@ async function mypageCallback(req, res) {
 }
 
 async function registerSuccessCallback(req, res) {
+    let userInfo = Datastore.create('./userInfo.db');
+
     const session = req.session;
-    if(!session) return res.redirect('/login')
+    if (!session) {
+        console.log("세션이없네요");
+        return res.redirect('/login')
+    }
     const userId = session.id;
     const user = await userInfo.findOne({ id: userId });
 
