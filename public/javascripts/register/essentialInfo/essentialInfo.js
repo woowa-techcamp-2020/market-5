@@ -40,6 +40,7 @@ inputId.addEventListener('keyup', onKeyUpIdInput);
 certificationIdButton.addEventListener('click', hasId);
 
 inputPassword.addEventListener('keyup', checkPassword);
+inputPassword.addEventListener('keyup', comparePassword);
 inputPasswordSecond.addEventListener('keyup', comparePassword);
 
 inputPhoneNum.addEventListener('keyup', reorderPhoneNum);

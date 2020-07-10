@@ -9,6 +9,9 @@ import {
     checkName,
 } from './essentialInfo/formCheck.js';
 
+import {checkVerification} from './essentialInfo/verification.js';
+const inputPasswordSecond = document.getElementById('passwordSecond');
+
 const registerButton = document.querySelector('.register-button');
 registerButton.addEventListener('click', submitRegister)
 
@@ -16,7 +19,8 @@ function submitRegister(e) {
     e.preventDefault();
 
     if (!checkId()) return;
-    if (!comparePassword()) return;
+    if (!checkPassword()) return;
+    if (!comparePassword()) return inputPasswordSecond.focus();
     if (!checkEmail()) return;
     if (!checkEmailDomain()) return;
     if (!checkPhoneNumEmpty()) return;
@@ -41,7 +45,8 @@ function submitRegister(e) {
             return res.json();
         })
         .then(res => {
-            alert(res.mes);
+            if (res.msg) alert(res.mes);
+            else location.href = "/register/success"
         })
         .catch(err => {
             console.log(err);
@@ -58,6 +63,7 @@ function postLogin(id, password) {
         body: JSON.stringify({
             id,
             password,
+            register: true
         })
     })
 }
@@ -68,10 +74,6 @@ function postRegister(formData) {
         method: 'POST',
         body: new URLSearchParams(formData),
     })
-}
-
-function postData(formData) {
-
 }
 
 function makeFormData() {
@@ -107,11 +109,3 @@ function checkAgreement() {
     }
 }
 
-function checkVerification() {
-    const certification = document.getElementById('certification');
-    if (certification.textContent !== '인증 완료') {
-        certification.style.borderColor = 'red';
-        return certification.focus();
-    }
-    return true;
-}

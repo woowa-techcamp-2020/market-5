@@ -6,16 +6,18 @@ function authenticate(req, res, next){
     console.log(parsedCookie);
 
     const sessionID = parsedCookie.sessionID;
+    if(!sessionID) return res.render('login');
     const id = parsedCookie.id;
 
     findSessionID(sessionID)
-    .then(user => {
-        console.log('user:', user);
-        if(!user) return res.render('login');
+    .then(session => {
+        console.log('session:', session);
+        if(!session) return res.render('login');
+        req.session = session;
         return next();
     })
     .catch(err => {
-        return res.sendStatus(401);
+        return res.render('login');
     })
 
 }

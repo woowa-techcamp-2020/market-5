@@ -4,11 +4,11 @@ import phoneNumReorder from '../../utils/phoneNumReorder.js';
 import emailValidator from '../../utils/emailValidator.js';
 import nameValidator from '../../utils/nameValidator.js';
 
-var isDuplicateCheck = false
+let isDuplicateCheck = false
 
 function onKeyUpIdInput() {
-    isDuplicateCheck = false
-    checkId()
+    isDuplicateCheck = false;
+    checkId();
 }
 
 function checkId() {
@@ -16,11 +16,13 @@ function checkId() {
     const id = inputId.value;
     const errorId = document.querySelector('.errorId')
     if (idValidator(id)) {
+        if(isDuplicateCheck) return true;
         errorId.textContent = '중복체크를 해주세요'
         errorId.style.color = "red";
         inputId.style.borderColor = "red";
         errorId.style.display = "block";
-        return isDuplicateCheck;
+        inputId.focus();
+        return false;
     } else {
         errorId.textContent = '입력하신 아이디로 사용이 불가합니다'
         errorId.style.color = "red";
@@ -107,7 +109,8 @@ function checkEmailDomain() {
         if (email.length == 0) errorEmail.textContent = '이메일주소를 입력해주세요'
         else errorEmail.innerText = '사용불가한 이메일입니다'
         errorEmail.style.color = "red";
-        inputEmail.focus();
+        document.querySelector('.email').focus();
+        // inputEmail.focus();
         return false;
     }
 }
@@ -141,7 +144,6 @@ function comparePassword() {
         errorPassworSecond.style.display = "block";
         errorPassworSecond.innerHTML = ERR_MESSAGE;
         inputPasswordSecond.style.borderColor = "red";
-        inputPasswordSecond.focus();
         return false;
     } else {
         errorPassworSecond.style.display = "none";

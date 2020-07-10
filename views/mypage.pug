@@ -1,4 +1,30 @@
 doctype html
-head
-  title registerSuccess
-h1 회원가입 성공창
+html
+    head(lang='ko')
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0')
+        link(href='/css/mypage.css', rel="stylesheet")
+        link(href='/css/normalize.css', rel="stylesheet")
+
+    body
+        .BMHANNAAir
+            img(src="http://localhost:8000/image/logo.png", alt="로고" style="display: block; max-width:250px; max-height:150px")
+            p(class="msg") #{message}
+            a(href='/') 메인으로 ➔
+            .big-box
+                table
+                    tr
+                        td 이름
+                        td #{name}      
+                    tr
+                        td 아이디
+                        td #{id}
+                    tr
+                        td 이메일
+                        td #{email}
+                    tr
+                        td 휴대폰
+                        td #{phone}
+            span(style="color: gray") 위 내용은 
+            span(style="color: gray; text-decoration: underline;") 내 정보 관리
+            span(style="color: gray") 에서 수정하실 수 있습니다

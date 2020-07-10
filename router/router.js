@@ -1,11 +1,13 @@
 const express = require('express');
 
-const {deleteSessionID} = require('../api/register/database.js');
 const { registerCallback } = require('./register.js');
 const doubleCheckId = require('./doubleCheckId.js');
 const {loginCallback, checkLogined} = require('./login.js');
 const {authenticate, cookieParser} = require('./middleware/authenticate.js');
+const loginCallback = require('./login.js');
 const deleteCookie = require('./cookie.js');
+const { mypageCallback, registerSuccessCallback } = require('./mypage.js');
+const loginChecked = require('./loginChecked.js');
 
 const router = express.Router();
 
@@ -18,17 +20,9 @@ router.get('/register', (req, res) => {
     res.render('./Register/register'); // (4)
 });
 
-router.get('/mypage', (req, res) => {
-    res.render('mypage'); // (4)
-});
-
-router.get('/login', checkLogined, (req, res) => {
-    res.render('login'); // (4)
-});
-
-// router.get('/main', authenticate, (req, res) => {
-//     res.render('main');
-// })
+router.get('/register/success', authenticate, registerSuccessCallback);
+router.get('/mypage', authenticate, mypageCallback);
+router.get('/login', authenticate, loginChecked);
 
 // post
 

@@ -3,6 +3,8 @@ import { checkPhoneNumEmpty } from './formCheck.js';
 let interval = null;
 const TIMER_SECONDS = 120;
 
+let verified = false;
+
 function countDown(time, timeLeftBox) {
     interval = setInterval(() => {
         if (time == 0) {
@@ -58,12 +60,22 @@ function verify(e) {
     document.querySelector('.verification-box').style.display = "none";
     document.querySelector('.time-left-box').style.display = "none";
     document.querySelector('#certification').textContent = "인증 완료"
+    verified = true;
 }
 
+function checkVerification() {
+    if(!verified) {
+        const certification = document.getElementById('certification');
+        certification.style.borderColor = 'red';
+        certification.focus();
+    }
+    return verified;
+}
 
 export {
     countDown,
     getMinuteAndSecond,
     certify,
     verify,
+    checkVerification,
 }

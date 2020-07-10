@@ -27,13 +27,19 @@ function checkLogined(req, res, next){
 }
 
 async function loginCallback(req, res) {
+    console.log('body:', req.body);
 
     const ERR_ID = "아이디가 맞지 않습니다."
     const ERR_PASSWORD = "비밀번호가 맞지 않습니다."
+
+
     const id = req.body.id;
     const password = req.body.password;
 
+    await userInfo.load()
     const user = await userInfo.find({ id: id })
+
+    console.log(user)
 
     if (!user.length) return res.status(400).json({
         mes: ERR_ID,
@@ -44,14 +50,16 @@ async function loginCallback(req, res) {
         mes: ERR_PASSWORD,
     })
 
-    const randomNum = String(Math.floor(Math.random()*1000000));
+    const randomNum = String(Math.floor(Math.random() * 1000000));
     const sessionID = String(encryption(randomNum));
     const session = await insertSessionID(id, sessionID);
 
-    return res
-            .cookie('id', id, {httpOnly:true, secure:false})
-            .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly:true, secure:false})
-            .render('mypage');
+    res.cookie('id', id, { httpOnly: true, secure: false })
+        .cookie('sessionID', sessionID, { expires: new Date(Date.now() + 900000), httpOnly: true, secure: false })
+
+    if (req.body.register) {
+        res.status(200).json({ success: true })
+    } else res.redirect('/mypage')
 }
 
 module.exports = {loginCallback, checkLogined};
