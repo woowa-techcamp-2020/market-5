@@ -10,7 +10,7 @@ const { render } = require('pug');
 function checkLogined(req, res, next) {
     const cookies = req.headers.cookie;
     const parsedCookie = cookieParser(cookies);
-
+    
     const sessionID = parsedCookie.sessionID;
     if (!sessionID) return next();
 
