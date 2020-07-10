@@ -1,6 +1,6 @@
-const {findSessionID} =  require('../../api/register/database.js');
+const { findSessionID } = require('../../api/register/database.js');
 
-function authenticate(req, res, next){
+function authenticate(req, res, next) {
     const cookies = req.headers.cookie;
 
     if(!cookies) return next();
@@ -25,16 +25,18 @@ function authenticate(req, res, next){
 
 }
 
-function cookieParser(cookies){
-    const cookieList = cookies.split(';');
-    const parsedCookie = {}
+function cookieParser(cookies) {
+    if (cookies) {
+        const cookieList = cookies.split(';');
+        const parsedCookie = {}
 
-    cookieList.forEach(cookie => {
-        const keyValue = cookie.split('=');
-        parsedCookie[keyValue[0].trim()] = keyValue[1].trim();
-    })
+        cookieList.forEach(cookie => {
+            const keyValue = cookie.split('=');
+            parsedCookie[keyValue[0].trim()] = keyValue[1].trim();
+        })
 
-    return parsedCookie;
+        return parsedCookie;
+    }
 }
 
-module.exports = {authenticate, cookieParser}
+module.exports = { authenticate, cookieParser }
