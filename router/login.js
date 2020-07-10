@@ -1,9 +1,30 @@
 const Datastore = require('nedb-promises');
-let userInfo = Datastore.create('./userInfo.db')
-let sessionDB = Datastore.create('./session.db');
 const encryption = require('../api/register/encryption.js');
-
+const {findSessionID} =  require('../api/register/database.js');
+const { cookieParser } = require('./middleware/authenticate.js');
 const { insertSessionID } = require('../api/register/database.js');
+const { render } = require('pug');
+
+let sessionDB = Datastore.create('./session.db');
+let userInfo = Datastore.create('./userInfo.db');
+
+
+function checkLogined(req, res, next){
+    const cookies = req.headers.cookie;
+    const parsedCookie = cookieParser(cookies);
+
+    const sessionID = parsedCookie.sessionID;
+    if(!sessionID) return next();
+
+    findSessionID(sessionID)
+    .then(user => {
+        if(user) return res.render('loginAlready');
+        return next();
+    })
+    .catch(err => {
+        return next();
+    })
+}
 
 async function loginCallback(req, res) {
 
@@ -33,4 +54,4 @@ async function loginCallback(req, res) {
             .render('mypage');
 }
 
-module.exports = loginCallback;
+module.exports = {loginCallback, checkLogined};
