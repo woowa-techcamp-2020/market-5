@@ -9,7 +9,7 @@ import {
     checkName,
 } from './essentialInfo/formCheck.js';
 
-import {checkVerification} from './essentialInfo/verification.js';
+import { checkVerification } from './essentialInfo/verification.js';
 const inputPasswordSecond = document.getElementById('passwordSecond');
 
 const registerButton = document.querySelector('.register-button');
@@ -54,7 +54,7 @@ function submitRegister(e) {
 }
 
 function postLogin(id, password) {
-    const url = 'http://localhost:8000/login';
+    const url = '/login';
     return fetch(url, {
         method: 'POST',
         headers: {
@@ -69,7 +69,7 @@ function postLogin(id, password) {
 }
 
 function postRegister(formData) {
-    const url = 'http://localhost:8000/register';
+    const url = '/register';
     return fetch(url, {
         method: 'POST',
         body: new URLSearchParams(formData),
@@ -108,4 +108,3 @@ function checkAgreement() {
         return true;
     }
 }
-

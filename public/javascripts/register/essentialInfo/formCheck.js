@@ -16,7 +16,7 @@ function checkId() {
     const id = inputId.value;
     const errorId = document.querySelector('.errorId')
     if (idValidator(id)) {
-        if(isDuplicateCheck) return true;
+        if (isDuplicateCheck) return true;
         errorId.textContent = '중복체크를 해주세요'
         errorId.style.color = "red";
         inputId.style.borderColor = "red";
@@ -56,7 +56,7 @@ async function hasId() {
     const id = inputId.value;
     const errorId = document.querySelector('.errorId')
         // Example POST method implementation:
-    const result = (await postData('http://localhost:8000/register/check/id', { id: id })).hasId
+    const result = (await postData('/register/check/id', { id: id })).hasId
     if (!idValidator(id)) {
         errorId.textContent = '입력하신 아이디로 사용이 불가합니다'
         errorId.style.color = "red";
