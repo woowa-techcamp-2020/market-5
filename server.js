@@ -10,6 +10,7 @@ app.use('/', route);
 
 app.set('view engine', 'pug'); // (1)
 // 에러 처리 부분
-app.listen(8000, () => {
-    console.log('Express App on http://localhost:8000');
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+    console.log(`Express App on http://localhost:${port}`);
 });
