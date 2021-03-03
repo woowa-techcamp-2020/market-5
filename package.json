@@ -11,7 +11,7 @@
         "nodemon": "^2.0.4",
         "pbkdf2": "^3.1.1",
         "pbkdf2-password": "^1.2.1",
-        "pug": "^3.0.0"
+        "pug": "^3.0.1"
     },
     "devDependencies": {},
     "scripts": {
